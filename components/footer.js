@@ -77,6 +77,7 @@ export default function footer({ data, showForm, setShowForm }) {
               <a 
                 href={data.Facebook_URL}
                 className={`email ${styles.callouts.anchor}`}
+                target="_blank"
                 >
                  <Image
                     src={fb} 
@@ -90,6 +91,7 @@ export default function footer({ data, showForm, setShowForm }) {
               <a 
                 href={`mailto: ${data.Email}`}
                 className={`email ${styles.callouts.anchor}`}
+                target="_blank"
                 >
                  <Image
                     src={email} 

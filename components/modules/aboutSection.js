@@ -33,7 +33,7 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
         main: `tline after:tline-after tline-black after:tline-black-after w-full bg-cyan`,
         container: `relative w-full left-[50%] translate-x-[-50%] flex flex-col px-10 py-[100px] max-w-[1023px] z-10`,
         logo: {
-            main: `relative w-full flex items-center justify-center items-center py-[20px] mb-[60px]`,
+            main: `relative w-full flex items-center justify-center items-center py-[20px] mb-[60px] bg-cyan`,
             img: `object-contain order-item-1 bg-cyan`,
         },
         content: `flex w-[50%] items-center justify-between relative order-item-1`,

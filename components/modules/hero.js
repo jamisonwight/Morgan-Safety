@@ -7,7 +7,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
     const { publicRuntimeConfig } = getConfig();
 
     const styles =  {
-        main: `tline after:tline-after tline-orange after:tline-orange-after w-full bg-black z-10`,
+        main: `tline after:tline-after tline-orange after:tline-orange-after w-full lg:h-[100vh] bg-black z-10`,
         container: `relative left-[50%] translate-x-[-50%] flex px-10 py-[150px] max-w-[1200px]`,
         content: `flex flex-[50%] justify-between`,
         content_container: {

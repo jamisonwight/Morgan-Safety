@@ -19,13 +19,13 @@ export default function Header({ links, showForm, setShowForm }) {
 
     return (
         <div className="header-container w-full sticky top-[0] z-20 bg-orange dark:orange">
-            <div className="wrapper full relative left-[50%] translate-x-[-50%] flex justify-between px-4 py-[10px] max-w-[1440px]">
-                <div className="logo w-[150px]">
+            <div className="wrapper full relative left-[50%] translate-x-[-50%] flex justify-between px-10 py-[10px]">
+                <div className="logo w-[125px] h-[78px]">
                     {links &&
-                        <a href="">
+                        <a href="/">
                             <ReactSVG 
                                 src={publicRuntimeConfig.BASE_URL + links.Logo.data.attributes.url}
-                                className="[&_path]:fill-black-100 w-[124px]" 
+                                className="[&_path]:fill-black-100" 
                             />
                         </a>
                     }
