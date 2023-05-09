@@ -8,20 +8,20 @@ export default function Hero({ data, showForm, setShowForm, index }) {
     const { publicRuntimeConfig } = getConfig()
 
     const styles =  {
-        main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex \
+        main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex overflow-hidden \
         -lg:min-h-[calc(100vh_-_100px)] lg:min-h-[100vh]`,
         container: `relative left-[50%] translate-x-[-50%] xs:flex-col lg:flex px-10 pb-[100px] h-full max-w-[1200px] z-20 \
-        lg:py-[150px] -lg:mt-[100px] -lg:bg-black`,
+        lg:py-[150px] -lg:mt-[60px] -lg:bg-black`,
         content: `flex flex-[100%] lg:flex-[50%] justify-between relative -lg:bg-black`,
         content_container: {
             main: `tline-marker-parent`,
             title: {
                 main: `w-full flex -lg:items-center mb-[20px]`,
                 inner_title: `heading-1 text-orange lg:max-w-[286px] mt-[20px]\ 
-                ${data.Title_Image.data ? 'ml-[15px]' : ''}`,
+                -sm:text-[30px] ${data.Title_Image.data ? 'ml-[15px]' : ''}`,
                 image: {
                     main: `flex`,
-                    img: `max-w-[165px] self-start`,
+                    img: `-lg:max-w-[135px] max-w-[165px] self-start`,
                 },
             },
             subtitle: `heading-3 text-cyan block pb-[10px]`,
