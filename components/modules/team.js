@@ -6,39 +6,45 @@ import { useRef } from "react";
 import { motion, useInView } from 'framer-motion'
 
 export default function Team({ data, bios, showForm, setShowForm, index }) {
+    
     const { publicRuntimeConfig } = getConfig()
     const bioRefs = useRef([])
     const bioIsInView = bioRefs.current.map(ref => useInView(ref, { amount: 0.3}));
 
-    const bioAnimation = {
-        start: { opacity: 0, scale: 0 },
-        end: { opacity: 1, scale: 1 }
-    }
-    const tLineAnimation = {
-        start: { scaleX: 0 },
-        end: { scaleX: 1 }
+    const animation = {
+        bio: {
+            start: { opacity: 0, scale: 0 },
+            end: { opacity: 1, scale: 1 },
+            transition: { duration: 0.5 },
+        },
+        tline: {
+            start: { scaleX: 0 },
+            end: { scaleX: 1 },
+            transition: { type: "spring", duration: 1, bounce: 0.4, },
+        }
     }
 
     const styles =  {
         main: `w-full tline after:tline-after tline-orange after:tline-orange-after bg-black-100 z-10`,
-        container: `relative left-[50%] translate-x-[-50%] flex px-10 sm:py-[0] max-w-[1440px]`,
+        container: `relative left-[50%] translate-x-[-50%] flex -lg:flex-col px-10 sm:py-[0] max-w-[1440px] z-20`,
         title_content: {
-            main: `flex flex-col flex-[50%] justify-center items-center lg:sticky lg:top-0 lg:h-[calc(100vh_+_97.5px)]`,
-            content_container: ``,
+            main: `flex flex-col lg:flex-[50%] justify-center items-center \
+            lg:sticky lg:top-0 lg:h-[calc(100vh_+_97.5px)] -lg:pt-[100px] -lg:bg-black -lg:pb-[60px]`,
+            content_container: `-lg:flex-col -lg:justify-center -lg:items-center`,
             title: {
                 main: `w-full flex mb-[10px]`,
-                inner_title: `heading-4-lg !font-normal text-orange max-w-[286px]`,
+                inner_title: `w-full heading-4-lg !font-normal text-orange lg:max-w-[286px] -lg:text-center`,
             },
-            description: `paragraph-3 text-orange pb-[30px] max-w-[300px]`,
-            btn_container: `flex flex-wrap self-start`,
-            button: `text-center max-w-[250px]`,
+            description: `paragraph-3 text-orange pb-[30px] w-full max-w-[300px] -lg:text-center`,
+            btn_container: `flex flex-wrap self-start -lg:items-center`,
+            button: `text-center -lg:max-w-[250px] -lg:ml-[25px] lg:max-w-[250px]`,
         },
         bios: {
-            main: `flex flex-col items-center flex-[50%] tline-marker-parent lg:my-[100px]`,
-            bio_item: `w-full flex justify-between mt-[150px] mb-[100px]`,
-            tline_marker: `tline-marker-orange top-[190px]`,
-            content: `w-[400px]`,
-            profile: `w-[280px] h-[390px] self-center relative img-border-backdrop`,
+            main: `flex flex-col items-center lg:flex-[50%] tline-marker-parent lg:my-[100px]`,
+            bio_item: `w-full flex justify-between -lg:justify-center  mt-[150px] mb-[100px] -lg:bg-black -lg:py-[60px]`,
+            tline_marker: `tline-marker-orange top-[190px] -lg:hidden`,
+            content: `lg:w-[400px] -lg:text-center`,
+            profile: `w-[280px] h-[390px] self-center relative -lg:left-[50%] -lg:translate-x-[-50%] img-border-backdrop`,
             name: `heading-4 w-[326px] !leading-0 mt-[40px] text-orange block`,
             work_title: `heading-5 w-[326px] text-orange block my-[10px]`,
             description: `paragraph-3 w-[326px] text-orange block`,
@@ -50,7 +56,7 @@ export default function Team({ data, bios, showForm, setShowForm, index }) {
             <div className={`container ${styles.container}`}>
                 {data &&
                 <div className={`title-content ${styles.title_content.main}`}>
-                    <div className={`content-container ${styles.content_container}`}>
+                    <div className={`content-container ${styles.title_content.content_container}`}>
                         <div className={`title ${styles.title_content.title.main}`}>
                             <h1 className={`inner-title ${styles.title_content.title.inner_title}`}>
                                 {data.Title}
@@ -88,17 +94,17 @@ export default function Team({ data, bios, showForm, setShowForm, index }) {
                                 >
                                 <motion.div
                                     className={`tline-marker ${styles.bios.tline_marker}`}
-                                    initial={tLineAnimation.start}
-                                    whileInView={bioIsInView ? tLineAnimation.end : {}}
-                                    transition={{ duration: 0.5 }} 
+                                    initial={animation.tline.start}
+                                    whileInView={bioIsInView ? animation.tline.end : {}}
+                                    transition={animation.tline.transition} 
                                     >
                                 </motion.div>
 
                                 <motion.div 
                                     className={`content ${styles.bios.content}`}
-                                    initial={bioAnimation.start}
-                                    whileInView={bioIsInView ? bioAnimation.end : {}}
-                                    transition={{ type: "spring", duration: 1, bounce: 0.4, }}
+                                    initial={animation.bio.start}
+                                    whileInView={bioIsInView ? animation.bio.end : {}}
+                                    transition={animation.bio.transition}
                                     >
                                     <div className={`profile ${styles.bios.profile}`}>
                                         <Image

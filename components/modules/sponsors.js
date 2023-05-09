@@ -3,17 +3,20 @@ import Image from 'next/image'
 import helmet from '../../assets/images/helmet.svg'
 
 export default function Sponsors({ data, index }) {
+    
     const { publicRuntimeConfig } = getConfig()
 
     const styles =  {
         main: `w-full bg-orange`,
-        container: `relative left-[50%] translate-x-[-50%] flex justify-between px-10 sm:py-[0] px-10 max-w-[1440px]`,
+        container: `relative left-[50%] translate-x-[-50%] flex justify-between px-10 px-10 max-w-[1440px] \
+        -lg:flex-col -lg:justify-center -lg:py-[80px]`,
         sponsors: {
-            main: `flex flex-col flex-[50%] justify-center items-center px-[40px]`,
+            main: `flex flex-col md:flex-[50%] justify-center items-center lg:px-[40px] -lg:pt-[60px] -lg:order-2`,
             content_container: `w-full flex flex-wrap justify-center items-end`,
             image: {
-                main: `w-[50%] flex my-[30px]`,
-                img: `w-full !h-[auto] !relative max-w-[180px] max-h-[125px] grayscale-[100%] brightness-[50%]`,
+                main: `-md:w-full w-[50%] flex -md:flex-col my-[30px]`,
+                img: `w-full !h-[auto] !relative max-w-[180px] max-h-[125px] grayscale-[100%] brightness-[50%] \
+                -lg:!left-[50%] -lg:translate-x-[-50%]`,
                 link_url: `w-full h-[auto] inline-block relative`,
             },
         },

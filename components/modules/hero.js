@@ -4,17 +4,20 @@ import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 
 export default function Hero({ data, showForm, setShowForm, index }) {
-    const { publicRuntimeConfig } = getConfig();
+    
+    const { publicRuntimeConfig } = getConfig()
 
     const styles =  {
-        main: `tline after:tline-after tline-orange after:tline-orange-after w-full lg:h-[100vh] bg-black z-10`,
-        container: `relative left-[50%] translate-x-[-50%] flex px-10 py-[150px] max-w-[1200px]`,
-        content: `flex flex-[50%] justify-between`,
+        main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex \
+        -lg:min-h-[calc(100vh_-_100px)] lg:min-h-[100vh]`,
+        container: `relative left-[50%] translate-x-[-50%] xs:flex-col lg:flex px-10 pb-[100px] h-full max-w-[1200px] z-20 \
+        lg:py-[150px] -lg:mt-[100px] -lg:bg-black`,
+        content: `flex flex-[100%] lg:flex-[50%] justify-between relative -lg:bg-black`,
         content_container: {
             main: `tline-marker-parent`,
             title: {
-                main: `w-full flex mb-[20px]`,
-                inner_title: `heading-1 text-orange max-w-[286px] mt-[20px]\ 
+                main: `w-full flex -lg:items-center mb-[20px]`,
+                inner_title: `heading-1 text-orange lg:max-w-[286px] mt-[20px]\ 
                 ${data.Title_Image.data ? 'ml-[15px]' : ''}`,
                 image: {
                     main: `flex`,
@@ -22,13 +25,13 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                 },
             },
             subtitle: `heading-3 text-cyan block pb-[10px]`,
-            description: `paragraph-1 text-cyan pb-[30px] max-w-[500px]`,
+            description: `paragraph-1 text-cyan pb-[30px] lg:max-w-[500px]`,
             btn_container: `flex flex-wrap self-start`,
-            button: `flex m-[5px]`,
+            button: `flex m-[5px] -lg:mb-[10px]`,
             tline_marker: `tline-marker-orange top-[100px]`,
         },
         image: {
-            main: `flex flex-[50%] justify-between items-center tline-marker-parent`,
+            main: `flex flex-[100%] lg:flex-[50%] justify-between items-center -lg:hidden tline-marker-parent`,
             tline_marker: `tline-marker-orange top-[50%] translate-y-[-50%] self-start flex-grow`,
             img: `img-wide img-cyan`
         },
@@ -63,7 +66,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                         <div className={`description ${styles.content_container.description}`}>
                             <ReactMarkdown children={data.Description} escapeHtml={false} />
                         </div>
-      
+
                         <div className={`btn-container ${styles.content_container.btn_container}`}>
                             {data.Links &&
                                 data.Links.map((link) => (

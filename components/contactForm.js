@@ -5,9 +5,9 @@ import getConfig from "next/config"
 import axios from 'axios'
 import validator from 'validator';
 
-const { publicRuntimeConfig } = getConfig();
-
 export default function ContactForm({ data, showForm, setShowForm }) {
+    
+    const { publicRuntimeConfig } = getConfig();
     const router = useRouter();
     const [First_Name, setFirstName] = useState('')
     const [Last_Name, setLastName] = useState('')
@@ -18,10 +18,9 @@ export default function ContactForm({ data, showForm, setShowForm }) {
     const [Number_Of_People, setNumberOfPeople] = useState(0)
     const [Comments, setComments] = useState('')
     const [errors, setErrors] = useState({})
-
-     const [isAnimating, setIsAnimating] = useState(false)
-     const cycleAnimation = () => setIsAnimating(prev => !prev)
-     const controls = useAnimation()
+    const [isAnimating, setIsAnimating] = useState(false)
+    const cycleAnimation = () => setIsAnimating(prev => !prev)
+    const controls = useAnimation()
 
     const validateForm = () => {
         const formErrors = {}
@@ -133,19 +132,19 @@ export default function ContactForm({ data, showForm, setShowForm }) {
     const styles = {
         motion: `fixed bottom-0 left-0 right-0 h-[calc(100vh_-_120px)] z-[100]`,
         main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black\
-        border-orange border-[1px] border-solid border-b-0 rounded-t-[108px]`,
+        border-orange border-[1px] border-solid border-b-0 rounded-t-[108px] -lg:px-[60px] -lg:pt-[80px]`,
         close: `absolute top-[40px] right-[60px]`,
         close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none\
         focus:ring-2 hover:ring-2 hover:ring-orange focus:ring-inset focus:ring-orange`,
-        content_container: `w-full max-w-[650px] overflow-y-scroll scrollbar-hide`,
+        content_container: `w-full max-w-[650px] overflow-y-scroll scrollbar-hide -lg:pt-[40px]`,
         title: {
-            main: `heading-4 text-orange normal-case text-center`,
+            main: `heading-4 text-orange normal-case text-center -sm:text-[25px]`,
             heading: ``,
         },
         form_container: {
             main: ``,
             form: `w-full mt-[40px] flex flex-wrap justify-between`,
-            input_container: `mb-[20px]`,
+            input_container: `mb-[20px] -lg:w-full`,
             btn_container: `w-full flex justify-center mt-[10px]`,
             btn: `min-w-[160px] mb-[40px]`,
             error: `paragragh-3 block text-cyan`,

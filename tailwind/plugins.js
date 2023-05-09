@@ -88,7 +88,7 @@ module.exports = [
             },
             '.btn.btn-fill-orange': {
                 'background': '#EE9B00',
-                'color': '#070707 !important',
+                'color': '#070707',
                 'border': '1px solid #EE9B00',
             },
             '.btn.btn-hollow-orange': {

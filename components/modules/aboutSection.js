@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { motion, useInView, useScroll, useSpring } from 'framer-motion'
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {
+    
     const { publicRuntimeConfig } = getConfig()
     const imageRef = useRef(null)
     const imageIsInView = useInView(imageRef, {amount: 0.3})
@@ -16,32 +17,24 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
     const contentItemRefs = useRef([])
     const contentItemIsInView = contentItemRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true}));
 
-    const imageAnimation = {
-        start: { opacity: 0, scale: 0 },
-        end: { opacity: 1, scale: 1 }
-    }
     const contentAnimation = {
         start: { opacity: 0, scale: 0.5 },
         end: { opacity: 1, scale: 1 }
     }
-    const tLineAnimation = {
-        start: { scaleX: 0 },
-        end: { scaleX: 1 }
-    }
 
     const styles = {
-        main: `tline after:tline-after tline-black after:tline-black-after w-full bg-cyan`,
+        main: `lg:tline after:tline-after tline-black after:tline-black-after w-full bg-cyan`,
         container: `relative w-full left-[50%] translate-x-[-50%] flex flex-col px-10 py-[100px] max-w-[1023px] z-10`,
         logo: {
             main: `relative w-full flex items-center justify-center items-center py-[20px] mb-[60px] bg-cyan`,
             img: `object-contain order-item-1 bg-cyan`,
         },
-        content: `flex w-[50%] items-center justify-between relative order-item-1`,
+        content: `flex w-[50%] -lg:w-full items-center justify-between relative order-item-1`,
         content_container: {
-            main: `tline-marker-parent max-w-[400px] order-item-2 mb-[40px]`,
+            main: `tline-marker-parent lg:max-w-[400px] order-item-2 mb-[40px]`,
             title: {
                 main: `w-full flex text-black`,
-                inner_title: `heading-4-lg uppercase text-black max-w-[400px]`,
+                inner_title: `heading-4-lg uppercase text-black lg:max-w-[400px] -lg:w-full`,
             },
             subtitle: `heading-3 text-black block pb-[5px]`,
             description: `paragraph-1 text-black pb-[20px] max-w-[400px]`,
@@ -50,24 +43,25 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
         },
         content_details: {
             main: `w-full relative flex flex-wrap`,
-            content_item: `relative flex w-[50%] items-center justify-between relative alt-order even:top-[100px] mb-[100px]`,
+            content_item: `relative flex w-[50%] -lg:w-full items-center justify-between relative alt-order lg:even:top-[100px] mb-[100px] \
+            -lg:mb-[60px] -lg:odd:text-right -lg:odd:pl-[20%] -lg:even:pr-[20%]`,
             content_container: {
-                main: `tline-marker-parent max-w-[400px] order-item-2`,
+                main: `tline-marker-parent lg:max-w-[400px] flex-col order-item-2`,
                 title: {
                     main: `w-full flex text-black`,
-                    inner_title: `heading-4 text-black max-w-[400px]`,
+                    inner_title: `heading-4 block text-black lg:max-w-[400px] -lg:w-full`,
                 },
                 subtitle: `heading-3 text-black block pb-[5px]`,
-                description: `paragraph-2 text-black  max-w-[400px]`,
+                description: `paragraph-2 text-black  lg:max-w-[400px]`,
                 btn_container: `flex flex-wrap self-start`,
             },
             tline_marker: `tline-marker-black top-[0px] order-item-1`,
             cta_button: `!inline-flex mt-[20px]`,
         },
         video_content: {
-            main: `relative w-full flex flex-col justify-center items-center mt-[80px] py-[20px] bg-cyan z-10`,
+            main: `relative w-full flex flex-col justify-center items-center mt-[80px] py-[20px] -lg:px-[20px] bg-cyan z-10`,
             container: `w-full flex flex-col justify-center items-center`,
-            video: `video-rounded relative w-[600px] h-[400px] overflow-hidden`,
+            video: `video-rounded relative w-[600px] h-[400px] overflow-hidden -lg:w-full -lg:h-full`,
             poster: `w-full h-full object-cover`,
             content: `pt-[40px] text-center`,
             title: `heading-4 text-black block mb-[5px]`,

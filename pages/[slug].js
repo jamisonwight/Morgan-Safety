@@ -7,6 +7,7 @@ import Modules from '../components/modules'
 
 
 export default function Page({ pageData: data, bios, showForm, setShowForm }) {
+  
   return (
     <div>
       {/* Get Training Page data */}

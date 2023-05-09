@@ -8,11 +8,17 @@ import email from '../assets/images/email.svg'
 import fb from '../assets/images/fb.svg'
 
 export default function footer({ data, showForm, setShowForm }) {
+
     const year = new Date().getFullYear()
+
+    const toggleHandler = (e) => {
+      e.preventDefault()
+    }
 
     const styles = {
       main: `w-full bg-black z-20 border-orange border-t-[1px] border-orange border-solid`,
-      container: `full relative left-[50%] translate-x-[-50%] flex justify-between items-end px-4 py-[40px] max-w-[1440px] bg-black z-20`,
+      container: `full relative left-[50%] translate-x-[-50%] flex justify-between items-end px-4 py-[40px] max-w-[1440px] bg-black z-20 \
+      -lg:flex-wrap -sm:flex-col -sm:items-center`,
       contact_info: {
         main: `flex-col flex-[50%]`,
         phone: `heading-6 text-orange mb-[10px]`,
@@ -20,14 +26,14 @@ export default function footer({ data, showForm, setShowForm }) {
         address: `heading-6 text-orange`,
       },
       legal: {
-        main: `h-full flex-col justify-end flex-[50%] text-center`,
+        main: `h-full flex-col justify-end flex-[50%] text-center -sm:pt-[60px] -lg:order-3`,
         links: `flex justify-center m-0 p-0 list-none`,
         anchor: `heading-7 text-orange inline-block mx-[20px] mb-[20px]`,
         copyright: `paragraph-3 text-orange`,
       },
       callouts: {
-        main: `flex-col justify-end items-end flex-[50%]`,
-        social: `flex justify-end items-end text-right mb-[20px]`,
+        main: `flex-col justify-end items-end flex-[50%] -sm:pt-[60px]`,
+        social: `flex justify-end items-end -sm:justify-center text-right mb-[20px]`,
         anchor: `inline-block relative mx-[10px]`,
         contact_button: {
           main: `flex justify-end self-end text-right`,
@@ -79,7 +85,7 @@ export default function footer({ data, showForm, setShowForm }) {
                 className={`email ${styles.callouts.anchor}`}
                 target="_blank"
                 >
-                 <Image
+                <Image
                     src={fb} 
                     alt="Facebook Icon"
                     loading="lazy"
@@ -93,7 +99,7 @@ export default function footer({ data, showForm, setShowForm }) {
                 className={`email ${styles.callouts.anchor}`}
                 target="_blank"
                 >
-                 <Image
+                <Image
                     src={email} 
                     alt="Email Icon"
                     loading="lazy"

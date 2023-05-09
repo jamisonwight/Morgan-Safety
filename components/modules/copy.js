@@ -3,7 +3,6 @@ import Button from '../partials/button'
 import ReactMarkdown from 'react-markdown'
 
 export default function Copy({ data, showForm, setShowForm, index }) {
-    const { publicRuntimeConfig } = getConfig()
 
     const styles =  {
         main: `w-full bg-black-100 z-10`,
