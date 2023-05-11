@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useAnimation, useCycle } from 'framer-motion'
 import getConfig from "next/config"
 import axios from 'axios'
 import validator from 'validator';
+import {RemoveScroll} from 'react-remove-scroll';
 
 export default function ContactForm({ data, showForm, setShowForm }) {
     
@@ -160,7 +161,7 @@ export default function ContactForm({ data, showForm, setShowForm }) {
             transition={{ duration: 1 }}
             className={styles.motion}
             >
-            <div className={`contact-form ${styles.main}`}>
+            <RemoveScroll className={`contact-form ${styles.main}`}>
                 <div className={`close ${styles.close}`} onClick={closeHandler}>
                     <button type="button" className={styles.close_button}>
                         <span class="sr-only">Close menu</span>
@@ -172,7 +173,7 @@ export default function ContactForm({ data, showForm, setShowForm }) {
                 <div className={`content-container ${styles.content_container}`}>
                     <div className={`title ${styles.title.main}`}>
                         <span className={`heading ${styles.title.heading}`}>
-                            Shedule Training / Contact Form
+                            Schedule Training / Contact Form
                         </span>
                     </div>
 
@@ -238,7 +239,7 @@ export default function ContactForm({ data, showForm, setShowForm }) {
                         </form>
                     </div>
                 </div>
-            </div>
+            </RemoveScroll>
         </motion.div>
     )
 }

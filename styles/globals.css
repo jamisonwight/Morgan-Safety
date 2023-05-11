@@ -166,6 +166,48 @@ body, a, button {
   }
 }
 
+@media screen and (min-width: 0 ) {
+  .img-wide,
+  .alt-order:nth-child(odd) .img {
+    width: 316px;
+    height: 180px;
+  }
+
+  .img-long,
+  .alt-order:nth-child(even) .img {
+    width: 206px;
+    height: 369px;
+  }
+}
+
+@media screen and (min-width: 480px ) {
+  .img-wide,
+  .alt-order:nth-child(odd) .img {
+    width: 326px;
+    height: 190px;
+  }
+
+  .img-long,
+  .alt-order:nth-child(even) .img {
+    width: 226px;
+    height: 389px;
+  }
+}
+
+@media screen and (min-width: 640px ) {
+  .img-wide,
+  .alt-order:nth-child(odd) .img {
+    width: 436px;
+    height: 290px;
+  }
+
+  .img-long,
+  .alt-order:nth-child(even) .img {
+    width: 326px;
+    height: 489px;
+  }
+}
+
 .tline-marker-parent {
   width: 80%;
 }
@@ -301,18 +343,6 @@ button[type="submit"] {
 .img-orange::after,
 .img-orange img {
   border: 1px solid #EE9B00 !important;
-}
-
-.img-wide,
-.alt-order:nth-child(odd) .img {
-  width: 436px;
-  height: 290px;
-}
-
-.img-long,
-.alt-order:nth-child(even) .img {
-  width: 326px;
-  height: 489px;
 }
 
 .video-rounded .react-player__preview {

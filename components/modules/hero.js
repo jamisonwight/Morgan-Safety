@@ -31,9 +31,9 @@ export default function Hero({ data, showForm, setShowForm, index }) {
             tline_marker: `tline-marker-orange top-[100px]`,
         },
         image: {
-            main: `flex flex-[100%] lg:flex-[50%] justify-between items-center -lg:hidden tline-marker-parent`,
-            tline_marker: `tline-marker-orange top-[50%] translate-y-[-50%] self-start flex-grow`,
-            img: `img-wide img-cyan`
+            main: `flex flex-[100%] lg:flex-[50%] justify-between -lg:justify-center items-center tline-marker-parent -md:hidden -lg:mt-[100px]`,
+            tline_marker: `tline-marker-orange top-[50%] translate-y-[-50%] self-start flex-grow -lg:hidden`,
+            img: `img-wide img-cyan -lg:w-[90%] -lg:h-[400px]`
         },
     }
 
@@ -97,7 +97,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                             src={`${publicRuntimeConfig.BASE_URL}${data.Image.data.attributes.url}`} 
                             alt="Hero Feature Image"
                             loading="lazy"
-                            className="w-full"
+                            className="w-full object-cover"
                             fill 
                         />
                     </div>

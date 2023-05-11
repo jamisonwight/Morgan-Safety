@@ -34,7 +34,7 @@ export default function timelineImageContent({ data, showForm, setShowForm, inde
 
     const styles = {
         main: `tline after:tline-after tline-orange after:tline-orange-after w-full alt-order alt-color \
-        -lg:py-[100px] -lg:bg-black z-10`,
+        -lg:py-[100px] -lg:bg-black -lg:overflow-x-hidden z-10`,
         container: `relative block w-full left-[50%] translate-x-[-50%] flex -lg:flex-col justify-between px-10 max-w-[1200px] z-10 \
         -lg:bg-black before-padding`,
         image: {
@@ -79,7 +79,7 @@ export default function timelineImageContent({ data, showForm, setShowForm, inde
                                 alt="Hero Feature Image"
                                 loading="lazy"
                                 className="object-cover"
-                                fill 
+                                fill cx
                             />
                         </motion.div>
 
