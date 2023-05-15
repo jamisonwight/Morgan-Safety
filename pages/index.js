@@ -56,6 +56,7 @@ export async function getStaticProps() {
   const bios = await bios_res.json()
 
   return {
-    props: { pages, bios }
+    props: { pages, bios },
+    revalidate: 60,
   } 
 }

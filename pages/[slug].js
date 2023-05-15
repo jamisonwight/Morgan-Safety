@@ -71,6 +71,7 @@ export async function getStaticProps({ params }) {
   })
 
   return {
-    props: { pageData, bios }
+    props: { pageData, bios },
+    revalidate: 60,
   } 
 }
