@@ -55,8 +55,8 @@ export default function timelineImageContent({ data, showForm, setShowForm, inde
                 main: `w-full flex -lg:justify-center`,
                 inner_title: `heading-4 text-orange max-w-[256px] -lg:text-center`,
             },
-            subtitle: `heading-3 text-cyan block pb-[10px] -lg:text-center`,
-            description: `paragraph-3 text-cyan pb-[20px] -lg:text-center`,
+            subtitle: `heading-3 text-cyan block py-[10px] -lg:text-center`,
+            description: `paragraph-3 text-cyan [&_p]:pb-[20px] -lg:text-center`,
             btn_container: `flex flex-wrap self-start -lg:justify-center`,
             tline_marker: `tline-marker-orange top-[0px] order-item-1 -lg:hidden`
         },   

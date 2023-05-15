@@ -10,7 +10,7 @@ export default async (req, res) => {
     case 'Schedule Training':
       html = `
         <p>Dear ${name},</p>
-        <p>Thank you for your interests in our MSHA safety training!</p>
+        <p>Thank you for your interest in our MSHA safety training!</p>
         <p>We have received your submission and we will review it shortly. If we require any further information from you, we will be in touch via the contact details you provided.</p>
         <p>Thank you once again for considering us and we look forward to connecting with you soon.</p>
         </br> 
