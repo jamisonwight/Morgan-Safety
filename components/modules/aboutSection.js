@@ -199,7 +199,7 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
                             <ReactPlayer 
                                 url={`${data.Video_File.data.attributes.url}`}
                                 light={<img 
-                                    src={`${publicRuntimeConfig.BASE_URL}${data.Video_Image.data.attributes.url}`} 
+                                    src={`${data.Video_Image.data.attributes.url}`} 
                                     alt={`${data.Video_File.data.attributes.name}`} 
                                     className={styles.video_content.poster} />}
                                 width="100%"
