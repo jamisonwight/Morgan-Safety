@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import CookieConsent from "react-cookie-consent"
 import Header from './header'
 import Footer from './footer'
 import useSWR from 'swr'
 import getConfig from "next/config";
 import ContactForm from './contactForm'
-import MobileMenu from './mobileMenu';
+import MobileMenu from './mobileMenu'
 
 export default function Layout({ children, showForm, setShowForm, showMobileMenu, setShowMobileMenu }) {
   

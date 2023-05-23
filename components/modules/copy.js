@@ -1,4 +1,4 @@
-import getConfig from "next/config";
+import getConfig from "next/config"
 import Button from '../partials/button'
 import ReactMarkdown from 'react-markdown'
 

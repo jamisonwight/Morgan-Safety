@@ -1,10 +1,10 @@
-import getConfig from "next/config";
+import getConfig from "next/config"
 import Button from '../partials/button'
 import Image from 'next/image'
 import logo from '../../assets/images/logo.svg'
 import ReactPlayer from 'react-player/lazy'
 import ReactMarkdown from 'react-markdown'
-import { useRef } from "react";
+import { useRef } from "react"
 import { motion, useInView, useScroll, useSpring } from 'framer-motion'
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {

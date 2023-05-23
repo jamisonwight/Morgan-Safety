@@ -1,4 +1,4 @@
-import { ReactSVG } from "react-svg";
+import { ReactSVG } from "react-svg"
 import { motion } from 'framer-motion'
 import getConfig from "next/config"
 import { getDynamicLink } from "@/hooks/getDynamicLink"

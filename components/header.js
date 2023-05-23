@@ -1,6 +1,6 @@
-import { ReactSVG } from "react-svg";
-import getConfig from "next/config";
-import { getDynamicLink } from "@/hooks/getDynamicLink";
+import { ReactSVG } from "react-svg"
+import getConfig from "next/config"
+import { getDynamicLink } from "@/hooks/getDynamicLink"
 import Button from './partials/button'
 import { motion } from 'framer-motion'
 

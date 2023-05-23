@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { motion, AnimatePresence, useAnimation, useCycle } from 'framer-motion'
 import getConfig from "next/config"
 import axios from 'axios'
-import validator from 'validator';
-import {RemoveScroll} from 'react-remove-scroll';
+import validator from 'validator'
+import {RemoveScroll} from 'react-remove-scroll'
 
 export default function ContactForm({ data, showForm, setShowForm }) {
     

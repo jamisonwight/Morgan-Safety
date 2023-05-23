@@ -1,4 +1,4 @@
-import getConfig from "next/config";
+import getConfig from "next/config"
 import Image from 'next/image'
 import helmet from '../../assets/images/helmet.svg'
 

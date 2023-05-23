@@ -1,5 +1,5 @@
-import getConfig from "next/config";
-import { mqMaxLarge } from "../../hooks/utils";
+import getConfig from "next/config"
+import { mqMaxLarge } from "../../hooks/utils"
 import Button from '../partials/button'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
