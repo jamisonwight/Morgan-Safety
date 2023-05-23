@@ -75,7 +75,7 @@ export default function timelineImageContent({ data, showForm, setShowForm, inde
                             transition={animation.image.transition}
                             >
                             <Image 
-                                src={`${publicRuntimeConfig.BASE_URL}${data.Image.data.attributes.url}`} 
+                                src={`${data.Image.data.attributes.url}`} 
                                 alt="Hero Feature Image"
                                 loading="lazy"
                                 className="object-cover"

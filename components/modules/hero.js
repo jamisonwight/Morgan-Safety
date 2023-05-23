@@ -47,7 +47,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                             {data.Title_Image.data ? (
                                 <div className={`image ${styles.content_container.title.image.main}`}>
                                     <img 
-                                        src={`${publicRuntimeConfig.BASE_URL}${data.Title_Image.data.attributes.url}`} 
+                                        src={`${data.Title_Image.data.attributes.url}`} 
                                         alt="Hero Title Image" 
                                         className={`${styles.content_container.title.image.img}`}
                                         />
@@ -94,7 +94,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                     
                     <div className={`img ${styles.image.img}`}>
                         <Image
-                            src={`${publicRuntimeConfig.BASE_URL}${data.Image.data.attributes.url}`} 
+                            src={`${data.Image.data.attributes.url}`} 
                             alt="Hero Feature Image"
                             loading="lazy"
                             className="object-cover"

@@ -108,7 +108,7 @@ export default function Team({ data, bios, showForm, setShowForm, index }) {
                                     >
                                     <div className={`profile ${styles.bios.profile}`}>
                                         <Image
-                                            src={`${publicRuntimeConfig.BASE_URL}${bio.Profile.data.attributes.url}`} 
+                                            src={`${bio.Profile.data.attributes.url}`} 
                                             alt="Profile Bio Image"
                                             loading="lazy"
                                             fill

@@ -54,7 +54,7 @@ export default function FeatureContent({ data, showForm, setShowForm, index }) {
                             transition={animation.transition}
                             >
                             <Image 
-                                src={`${publicRuntimeConfig.BASE_URL}${data.Image.data.attributes.url}`} 
+                                src={`${data.Image.data.attributes.url}`} 
                                 alt="Hero Feature Image"
                                 loading="lazy"
                                 className="object-cover"

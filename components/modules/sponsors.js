@@ -44,7 +44,7 @@ export default function Sponsors({ data, index }) {
                                     
                                     >
                                     <Image
-                                        src={`${publicRuntimeConfig.BASE_URL}${sponsor.Image_File.data.attributes.url}`} 
+                                        src={`${sponsor.Image_File.data.attributes.url}`} 
                                         alt="Sponsor Image"
                                         loading="lazy"
                                         className={`${styles.sponsors.image.img}`}

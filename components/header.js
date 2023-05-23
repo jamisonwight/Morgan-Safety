@@ -54,7 +54,7 @@ export default function Header({
                     {links &&
                         <a href="/">
                             <ReactSVG 
-                                src={publicRuntimeConfig.BASE_URL + links.Logo.data.attributes.url}
+                                src={links.Logo.data.attributes.url}
                                 className={styles.logo.svg} 
                             />
                         </a>
