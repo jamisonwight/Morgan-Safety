@@ -214,6 +214,8 @@ body, a, button {
 
 input[type="text"],
 input[type="number"],
+input[type="password"],
+input[type="email"],
 select {
   border: 1px solid #94D2BD;
   border-radius: 108px;
@@ -226,8 +228,13 @@ select {
 input[type="text"]::placeholder,
 input[type="text"]:placeholder-shown,
 input[type="number"]::placeholder,
-input[type="number"]:placeholder-shown {
-  color: #EE9B00;
+input[type="number"]:placeholder-shown
+input[type="password"]::placeholder,
+input[type="password"]:placeholder-shown,
+input[type="email"]::placeholder,
+input[type="email"]:placeholder-shown,
+input::placeholder   {
+  color: #EE9B00 !important;
   padding-left: 10px;
   text-indent: 10px;
 }

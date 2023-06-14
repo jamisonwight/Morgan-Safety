@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import CookieConsent from "react-cookie-consent"
+import UserProvider from '../context/user'
 import Header from './header'
 import Footer from './footer'
 import useSWR from 'swr'
@@ -44,7 +45,13 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
         />
       }
 
-      <main showForm={showForm} setShowForm={setShowForm}>{children}</main>
+      <main>
+        <UserProvider 
+          children={children} 
+          showForm={showForm} 
+          setShowForm={setShowForm} 
+        />
+      </main>
 
       {showForm && 
         <ContactForm 
