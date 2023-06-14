@@ -1,28 +1,29 @@
-import axios from '../../../lib/api'
+import axios from 'axios'
+import getConfig from "next/config"
 
 export default async (req, res) => {
-    const { username, password, email } = req.body
+    const { publicRuntimeConfig } = getConfig()
 
-    if (req.method === 'POST') {
-        
-        res = await axios
-        .post('/auth/local/register', {username, password, email}, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then((response) => {
-            return res.status(200).json({
-                message: `Check your email (${req.body.email}) and follow the instructions to confirm your account.`,
-            })
-        })
-        .catch((error) => {
-            if (!error.response.data.error.message) {
-                return res.status(500).json({ message: 'Internal server error' });
-              } else {
-                const messages = error.response.data.error.message;
-                return res.status(403).json({ message: messages });
-              }
-        })
+    if (req.method !== 'POST') {
+        return res.status(405).json({ message: 'Method Not Allowed' })
+    }
+
+    try {
+        const { username, email, password } = req.body;
+
+        // Make a POST request to the Strapi registration endpoint
+        const response = await axios.post(`${publicRuntimeConfig.API_URL}/auth/local/register`, {
+            username,
+            email,
+            password,
+        });
+
+        // Registration successful
+        const { message } = response.data;
+        return res.status(200).json({ message });
+    } catch (error) {
+        // Registration failed
+        const { message } = error.response.data;
+        return res.status(500).json({ message });
     }
 }
