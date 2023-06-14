@@ -4,7 +4,7 @@ export default async (req, res) => {
     if (req.method === 'POST') {
         
         res = await axios
-        .post('/auth/local/register', req.body, {
+        .post('/api/auth/local/register', req.body, {
             headers: {
                 'Content-Type': 'application/json',
             },
