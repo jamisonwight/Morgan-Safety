@@ -1,12 +1,9 @@
 import { useState, createContext } from 'react'
-import axios from 'axios'
-import getConfig from "next/config"
-
+import { linstance } from '../lib/api'
 
 export const UserContext = createContext(null)
 
 const UserProvider = ({ children, showForm, setShowForm }) => {
-    const { publicRuntimeConfig } = getConfig()
     const [dummy, setDummy] = useState()
 
     async function dummyfunction() {
@@ -14,12 +11,12 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     }
 
     async function doRegister(values) {
-        // var ret = ['niente'
+        // var ret = ['niente']
         try {
-            await axios.post(`${publicRuntimeConfig.BASE_URL}/api/auth/register`, values)
+            const resp = await linstance.post(`/api/auth/register`, values)
             return ['OK', resp.data.message]
         } catch (error) {
-            return ['alert', 'its all fucked']
+            return ['alert', error.response.data.message]
         }
     }
 

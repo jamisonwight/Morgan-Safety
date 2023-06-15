@@ -9,21 +9,20 @@ export default async (req, res) => {
     }
 
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password } = req.body
 
         // Make a POST request to the Strapi registration endpoint
-        const response = await axios.post(`${publicRuntimeConfig.API_URL}/auth/local/register`, {
+        const response = await axios.post(`${publicRuntimeConfig.API_URL}/api/auth/local/register`, {
             username,
             email,
             password,
-        });
-
-        // Registration successful
-        const { message } = response.data;
-        return res.status(200).json({ message });
+        })
+        
+        const { message } = response.data
+        return res.status(200).json({ message })
     } catch (error) {
         // Registration failed
-        const { message } = error.response.data;
-        return res.status(500).json({ message });
+        const message = error?.response?.data?.error?.message || 'Internal Server Error'
+        return res.status(500).json({ message })
     }
 }

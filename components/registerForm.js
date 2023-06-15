@@ -1,11 +1,10 @@
 import { useState, useContext } from 'react'
-import { useForm, reset } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import getConfig from "next/config"
 import { UserContext } from '../context/user';
 
 export default function RegisterForm() {
     
-    const { publicRuntimeConfig } = getConfig()
     const { doRegister } = useContext(UserContext)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [alert, setAlert] = useState(['', ''])
@@ -137,7 +136,7 @@ export default function RegisterForm() {
                             </button>
                         </div>
 
-                        {alert[1]}
+                        <span className={styles.form_container.error}>{alert[1]}</span>
                     </form>
                 </div>
             </div>
