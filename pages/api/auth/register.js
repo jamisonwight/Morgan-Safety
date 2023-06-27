@@ -17,7 +17,6 @@ export default async (req, res) => {
             email,
             password,
         })
-        
         const { message } = response.data
         return res.status(200).json({ message })
     } catch (error) {
