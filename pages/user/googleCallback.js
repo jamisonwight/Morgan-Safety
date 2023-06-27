@@ -17,8 +17,8 @@ export default function GoogleCallback() {
             if (res[0] === 'alert') {
                 setError(res[1])
             }
-            
-            console.log(res[1])
+
+            console.log(res)
             setUser(res[1])
         }
     }, [router])
