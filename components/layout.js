@@ -7,6 +7,7 @@ import useSWR from 'swr'
 import getConfig from "next/config";
 import ContactForm from './contactForm'
 import MobileMenu from './mobileMenu'
+import AccountHeader from './account/header'
 
 export default function Layout({ children, showForm, setShowForm, showMobileMenu, setShowMobileMenu }) {
   
@@ -26,6 +27,8 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
       <UserProvider 
         children={
           <>
+            <AccountHeader />
+
             <Header 
               links={hdata && hdata.data.attributes} 
               showForm={showForm} 

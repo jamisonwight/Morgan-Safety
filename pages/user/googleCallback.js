@@ -10,17 +10,9 @@ export default function GoogleCallback() {
 
     useEffect(() => {
         if (router.query.access_token) {
-            const res = doGoogleCallback({
+            doGoogleCallback({
                 access_token: router.query.access_token,
             })
-
-            if (res[0] === 'alert') {
-                setError(res[1])
-            }
-
-            console.log(res[1]['username'])
-            console.log(res[1]['email'])
-            setUser(res[1])
         }
     }, [router])
 

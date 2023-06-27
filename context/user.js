@@ -53,6 +53,9 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const doGoogleCallback = async (values) => {
         try {
             const resp = await linstance.post('/api/auth/google/callback', values)
+            setUser(resp.data.message)
+            setEmail(resp.data.message.email)
+            setId(resp.data.message.id)
             return ['OK', resp.data.message]
         } catch (error) {
             return ['alert', error.response.data.message]
