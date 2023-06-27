@@ -18,7 +18,8 @@ export default function GoogleCallback() {
                 setError(res[1])
             }
             
-            setUser(res[1].username)
+            console.log(res[1])
+            setUser(res[1])
         }
     }, [router])
 
