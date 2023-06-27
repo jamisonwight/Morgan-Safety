@@ -1,16 +1,15 @@
 import { useState, createContext } from 'react'
 import { linstance } from '../lib/api'
+import useRouter from 'next/router'
 
 export const UserContext = createContext(null)
 
 const UserProvider = ({ children, showForm, setShowForm }) => {
-    const [dummy, setDummy] = useState()
+    const [user, setUser] = useState()
+    const [email, setEmail] = useState()
+    const [id, setId] = useState()
 
-    async function dummyfunction() {
-        return "dummy function invoked"
-    }
-
-    async function doRegister(values) {
+    const doRegister = async (values) => {
         // var ret = ['niente']
         try {
             const resp = await linstance.post(`/api/auth/register`, values)
@@ -20,11 +19,58 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
         }
     }
 
+    const doLogin = async (values) => {
+        try {
+            const resp = await linstance.post('/api/auth/login', values)
+            return resp.data
+        } catch (error) {
+            return ['alert', error.response.data.message]
+        }
+    }
+
+    const checkLogin = async () => {
+        try {
+            const resp = await linstance.get('/api/auth/user')
+            setUser(resp.data.user)
+            setEmail(resp.data.email)
+            setId(resp.data.id)
+            return resp
+        } catch (error) {
+            return error.response
+        }
+    }
+
+    const doLogout = async () => {
+        const resp = await linstance.post('/api/auth/logout', { method: 'POST' })
+        if (resp.data.message == 'success') {
+            setUser('')
+            setEmail('')
+            setId('')
+            useRouter.push('/user/login')
+        }
+    }
+
+    const doGoogleCallback = async (values) => {
+        try {
+            const resp = await linstance.post('/api/auth/google/callback', values)
+            return ['OK', resp.data.message]
+        } catch (error) {
+            return ['alert', error.response.data.message]
+        }
+    }
+
     const useract = {
-        dummy: dummy,
-        setDummy: setDummy,
-        dummyfunction: dummyfunction,
         doRegister: doRegister,
+        user: user,
+        setUser: setUser,
+        email: email,
+        setEmail: setEmail,
+        id: id,
+        setId: setId,
+        checkLogin: checkLogin,
+        doLogin: doLogin,
+        doLogout: doLogout,
+        doGoogleCallback: doGoogleCallback,
     }
 
     return (

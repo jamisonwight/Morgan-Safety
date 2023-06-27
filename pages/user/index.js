@@ -1,4 +1,4 @@
-export default function home() {
+export default function User() {
     const styles = {
         main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black`,
         title: `heading-1 text-orange`,

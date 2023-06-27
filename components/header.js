@@ -1,8 +1,10 @@
+import { useContext } from 'react'
 import { ReactSVG } from "react-svg"
 import getConfig from "next/config"
 import { getDynamicLink } from "@/hooks/getDynamicLink"
 import Button from './partials/button'
 import { motion } from 'framer-motion'
+import { UserContext } from '../context/user'
 
 export default function Header({ 
     links, 
@@ -14,7 +16,7 @@ export default function Header({
     }) {
 
     const { publicRuntimeConfig } = getConfig()
-
+    const { doLogout } = useContext(UserContext)
     const animation = { scale: 1.15 }
 
     const toggleHandler = (e) => {

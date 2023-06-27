@@ -22,45 +22,45 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
   }
 
   return (
-    <>
-      <Header 
-        links={hdata && hdata.data.attributes} 
-        showForm={showForm} 
-        setShowForm={setShowForm}
-        showMobileMenu={showMobileMenu} 
-        setShowMobileMenu={setShowMobileMenu}
-        showIsMenuOpen={showIsMenuOpen} 
-        setShowIsMenuOpen={handleIsMenuOpen}  
+    <main>
+      <UserProvider 
+        children={
+          <>
+            <Header 
+              links={hdata && hdata.data.attributes} 
+              showForm={showForm} 
+              setShowForm={setShowForm}
+              showMobileMenu={showMobileMenu} 
+              setShowMobileMenu={setShowMobileMenu}
+              showIsMenuOpen={showIsMenuOpen} 
+              setShowIsMenuOpen={handleIsMenuOpen}  
+            />
+
+            {showMobileMenu && 
+              <MobileMenu 
+                links={hdata && hdata.data.attributes}
+                showForm={showForm} 
+                setShowForm={setShowForm} 
+                showMobileMenu={showMobileMenu} 
+                setShowMobileMenu={setShowMobileMenu}
+                showIsMenuOpen={showIsMenuOpen} 
+                setShowIsMenuOpen={handleIsMenuOpen}  
+              />
+            }
+
+            {children}
+
+            {showForm && 
+              <ContactForm 
+                showForm={showForm} 
+                setShowForm={setShowForm} 
+              />
+            }
+
+            <Footer data={fdata && fdata.data.attributes} showForm={showForm} setShowForm={setShowForm} />
+          </>
+        } 
       />
-
-      {showMobileMenu && 
-        <MobileMenu 
-          links={hdata && hdata.data.attributes}
-          showForm={showForm} 
-          setShowForm={setShowForm} 
-          showMobileMenu={showMobileMenu} 
-          setShowMobileMenu={setShowMobileMenu}
-          showIsMenuOpen={showIsMenuOpen} 
-          setShowIsMenuOpen={handleIsMenuOpen}  
-        />
-      }
-
-      <main>
-        <UserProvider 
-          children={children} 
-          showForm={showForm} 
-          setShowForm={setShowForm} 
-        />
-      </main>
-
-      {showForm && 
-        <ContactForm 
-          showForm={showForm} 
-          setShowForm={setShowForm} 
-        />
-      }
-
-      <Footer data={fdata && fdata.data.attributes} showForm={showForm} setShowForm={setShowForm} />
-    </>
+    </main>
   )
 }
