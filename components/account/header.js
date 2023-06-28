@@ -7,7 +7,7 @@ import Logout from '../partials/logout'
 export default function AccountHeader() {
 
     const { publicRuntimeConfig } = getConfig()
-    const { user, doLogout } = useContext(UserContext)
+    const { user, email, doLogout } = useContext(UserContext)
 
     const styles = {
         main: `header-container w-full sticky top-[0] z-20 bg-dark dark:orange`,
@@ -16,22 +16,27 @@ export default function AccountHeader() {
             main: `menu-left ml-[75px] hidden lg:block`,
             ul: `flex flex-row justify-center items-center h-full`,
         },
-        link: `text-orange font-din font-bold text-h5 tracking-h5 uppercase block px-[15px]`,
+        username: `flex`,
+        link: `text-orange font-din text-h7 tracking-h7 uppercase block`,
+        span: `text-cyan font-din font-bold text-h7 tracking-h7 uppercase block px-[5px]`,
     }
 
     return (
         <div className={`account-header-container ${styles.main}`}>
-            <div className={`wrapper ${styles.wrapper}`}>
-                <div className={`username ${styles.username}`}>
-                    <Link href="/user" className={styles.link}>{user && user.username}</Link>
-                </div>
+            {user.confirmed && (
+                <div className={`wrapper ${styles.wrapper}`}>
+                    <div className={`username ${styles.username}`}>
+                        <span className={styles.span}>User:</span>
+                        <Link href="/user" className={styles.link}>{user.username}</Link>
+                    </div>
 
-                <div className={`menu ${styles.menu.main}`}>
-                    <ul className={styles.menu.ul}>
-                        <li><Logout /></li>
-                    </ul>
+                    <div className={`menu ${styles.menu.main}`}>
+                        <ul className={styles.menu.ul}>
+                            <li><Logout className={styles.link} /></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }

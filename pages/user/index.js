@@ -19,7 +19,7 @@ export default function User() {
     return (
         <div className={`users`}>
             <div className={`container ${styles.main}`}>
-                <div className={`title ${styles.title}`}>Welcome {user && (user.email)}!</div>
+                <div className={`title ${styles.title}`}>Welcome {user && (email)}!</div>
             </div>
         </div>
     )

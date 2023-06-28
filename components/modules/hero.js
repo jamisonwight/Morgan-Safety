@@ -17,7 +17,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
             main: `tline-marker-parent`,
             title: {
                 main: `w-full flex -lg:items-center mb-[20px]`,
-                inner_title: `heading-1 text-orange lg:max-w-[286px] mt-[20px]\ 
+                inner_title: `heading-1 text-orange flex items-center lg:max-w-[286px] mt-[20px]\ 
                 -sm:text-[30px] ${data.Title_Image.data ? 'ml-[15px]' : ''}`,
                 image: {
                     main: `flex`,

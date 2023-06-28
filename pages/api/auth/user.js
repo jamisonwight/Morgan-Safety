@@ -16,7 +16,7 @@ export default async (req, res) => {
         })
         .then((response) => {
             res.status(200).json({
-                user: response.data.username,
+                user: response.data,
                 email: response.data.email,
                 id: response.data.id,
             })

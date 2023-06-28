@@ -5,13 +5,18 @@ import useRouter from 'next/router'
 export const UserContext = createContext(null)
 
 const UserProvider = ({ children, showForm, setShowForm }) => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({
+        confirmed: false,
+        id: 0,
+        username: '',
+        email: '',
+    })
     const [email, setEmail] = useState()
     const [id, setId] = useState()
 
     const doRegister = async (values) => {
         // var ret = ['niente']
-        try {
+        try {  
             const resp = await linstance.post(`/api/auth/register`, values)
             return ['OK', resp.data.message]
         } catch (error) {
@@ -31,9 +36,18 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const checkLogin = async () => {
         try {
             const resp = await linstance.get('/api/auth/user')
-            setUser(resp.data.user)
-            setEmail(resp.data.email)
-            setId(resp.data.id)
+            const _data = await resp.data.message
+            console.log(_data)
+
+            setUser({
+                confirmed: _data.confirmed,
+                id: _data.id,
+                username: _data.username,
+                email: _data.email,
+            })
+            setEmail(_data.email)
+            setId(_data.id)
+
             return resp
         } catch (error) {
             return error.response
@@ -53,9 +67,19 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const doGoogleCallback = async (values) => {
         try {
             const resp = await linstance.post('/api/auth/google/callback', values)
-            setUser(resp.data.message)
-            setEmail(resp.data.message.email)
-            setId(resp.data.message.id)
+            const _data = await resp.data.message
+
+            setUser({
+                confirmed: _data.confirmed,
+                id: _data.id,
+                username: _data.username,
+                email: _data.email,
+            })
+            setEmail(_data.email)
+            setId(_data.id)
+
+            console.log(_data)
+
             return ['OK', resp.data.message]
         } catch (error) {
             return ['alert', error.response.data.message]

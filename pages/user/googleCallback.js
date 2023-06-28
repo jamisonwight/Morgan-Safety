@@ -16,12 +16,12 @@ export default function GoogleCallback() {
         }
     }, [router])
 
-    if (user) {
-        router.push('/user')
+    if (user.confirmed) {
+        router.push('/')
     }
 
     if (error) {
-        router.push(`/user?msg=${error}`)
+        router.push(`/?msg=${error}`)
     }
 
     return <p>Loggin in with Google</p>

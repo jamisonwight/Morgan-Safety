@@ -14,8 +14,8 @@ export default function Login() {
         }
     }, [])
 
-    if (user) {
-        useRouter.push('/user')
+    if (user.confirmed) {
+        useRouter.push('/')
     } else {
         return <LoginForm />
     }
