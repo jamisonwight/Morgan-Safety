@@ -10,7 +10,7 @@ export default function Register() {
         checkLogin()
     }, [])
 
-    if (user) {
+    if (user.confirmed) {
         useRouter.push('/user')
     } else {
         return <RegisterForm />
