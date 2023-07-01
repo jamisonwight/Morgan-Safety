@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export const getDynamicLink = (text, url, classes) => {
     if (url.charAt(0) == '#') {
         let newUrl = url.slice(1)
@@ -21,11 +23,11 @@ export const getDynamicLink = (text, url, classes) => {
         )
     }
     return (
-        <a 
+        <Link 
             href={url} 
             className={classes}
             >
             {text}
-        </a>
+        </Link>
     )
 }

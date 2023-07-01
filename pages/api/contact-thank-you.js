@@ -51,7 +51,7 @@ export default async (req, res) => {
     })
 
     const message = {
-      from: `Morgan Safety Services <${publicRuntimeConfig.TEST_EMAIL}`, // replace with your email address
+      from: `Morgan Safety Services <${publicRuntimeConfig.ADMIN_EMAIL}`, // replace with your email address
       to: email, // replace with the recipient email address
       subject: `${form_type}: Thank you!`,
       html: html

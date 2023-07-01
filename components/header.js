@@ -1,10 +1,12 @@
 import { useContext } from 'react'
 import { ReactSVG } from "react-svg"
+import Link from 'next/link'
 import getConfig from "next/config"
 import { getDynamicLink } from "@/hooks/getDynamicLink"
 import Button from './partials/button'
 import { motion } from 'framer-motion'
 import { UserContext } from '../context/user'
+import AccountHeader from './account/header'
 
 export default function Header({ 
     links, 
@@ -26,8 +28,8 @@ export default function Header({
     }
 
     const styles = {
-        main: `header-container w-full sticky top-[0] z-20 bg-orange dark:orange`,
-        wrapper: `full relative left-[50%] translate-x-[-50%] flex justify-between items-center px-10 py-[10px]`,
+        main: `header-container w-full sticky top-[0] z-20`,
+        wrapper: `full relative left-[50%] translate-x-[-50%] flex justify-between items-center px-10 py-[10px] bg-orange`,
         logo: {
             main: `w-[125px] h-[78px]`,
             svg: `[&_path]:fill-black-100`,
@@ -51,15 +53,17 @@ export default function Header({
 
     return (
         <div className={`header-container ${styles.main}`}>
+            <AccountHeader />
+
             <div className={`wrapper ${styles.wrapper}`}>
                 <div className={`logo ${styles.logo.main}`}>
                     {links &&
-                        <a href="/">
+                        <Link href="/">
                             <ReactSVG 
                                 src={links.Logo.data.attributes.url}
                                 className={styles.logo.svg} 
                             />
-                        </a>
+                        </Link>
                     }
                 </div>
 

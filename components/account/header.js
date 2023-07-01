@@ -1,17 +1,15 @@
-import { useContext } from 'react'
-import getConfig from "next/config"
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/user'
 import Link from 'next/link'
 import Logout from '../partials/logout' 
 
 export default function AccountHeader() {
 
-    const { publicRuntimeConfig } = getConfig()
-    const { user, email, doLogout } = useContext(UserContext)
+    const { user, setUser, checkLogin } = useContext(UserContext)
 
     const styles = {
-        main: `header-container w-full sticky top-[0] z-20 bg-dark dark:orange`,
-        wrapper: `full relative left-[50%] translate-x-[-50%] flex justify-between items-center px-10 py-[10px]`,
+        main: `account-header-container w-full sticky top-[0] z-20`,
+        wrapper: `full relative left-[50%] translate-x-[-50%] flex justify-between items-center px-10 py-[10px] bg-black`,
         menu: {
             main: `menu-left ml-[75px] hidden lg:block`,
             ul: `flex flex-row justify-center items-center h-full`,
@@ -20,6 +18,13 @@ export default function AccountHeader() {
         link: `text-orange font-din text-h7 tracking-h7 uppercase block`,
         span: `text-cyan font-din font-bold text-h7 tracking-h7 uppercase block px-[5px]`,
     }
+
+    useEffect(() => {
+        const res = checkLogin()
+        if (res.status === 200) {
+            setUser(res.data)
+        }
+    }, [])
 
     return (
         <div className={`account-header-container ${styles.main}`}>
