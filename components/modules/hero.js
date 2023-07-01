@@ -96,7 +96,6 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                         <Image
                             src={`${data.Image.data.attributes.url}`} 
                             alt="Hero Feature Image"
-                            loading="lazy"
                             className="object-cover"
                             fill 
                         />
