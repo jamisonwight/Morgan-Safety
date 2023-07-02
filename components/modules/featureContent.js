@@ -56,9 +56,9 @@ export default function FeatureContent({ data, showForm, setShowForm, index }) {
                             <Image 
                                 src={`${data.Image.data.attributes.url}`} 
                                 alt="Hero Feature Image"
-                                loading="lazy"
                                 className="object-cover"
-                                fill 
+                                fill
+                                priority 
                             />
                         </motion.div>
 

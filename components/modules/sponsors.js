@@ -8,7 +8,7 @@ export default function Sponsors({ data, index }) {
 
     const styles =  {
         main: `w-full bg-orange`,
-        container: `relative left-[50%] translate-x-[-50%] flex justify-between px-10 px-10 max-w-[1440px] \
+        container: `relative left-[50%] translate-x-[-50%] flex justify-between px-10 px-10 max-w-[1440px] z-10 \
         -lg:flex-col -lg:justify-center -lg:py-[80px]`,
         sponsors: {
             main: `flex flex-col md:flex-[50%] justify-center items-center lg:px-[40px] -lg:pt-[60px] -lg:order-2`,

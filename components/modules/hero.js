@@ -98,6 +98,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                             alt="Hero Feature Image"
                             className="object-cover"
                             fill 
+                            priority
                         />
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import logo from '../../assets/images/logo.svg'
 import ReactPlayer from 'react-player/lazy'
 import ReactMarkdown from 'react-markdown'
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { motion, useInView, useScroll, useSpring } from 'framer-motion'
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {
@@ -13,9 +13,10 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
     const imageRef = useRef(null)
     const imageIsInView = useInView(imageRef, {amount: 0.3})
     const contentRefs = useRef([])
-    const contentIsInView = contentRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true }));
+    const contentIsInView = contentRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true }))
     const contentItemRefs = useRef([])
-    const contentItemIsInView = contentItemRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true}));
+    const contentItemIsInView = contentItemRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true}))
+    const [isPlaying, setIsPlaying] = useState(false)
 
     const contentAnimation = {
         start: { opacity: 0, scale: 0.5 },
@@ -67,6 +68,10 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
             title: `heading-4 text-black block mb-[5px]`,
             description: `prose paragraph-3 text-black`,
         }   
+    }
+
+    const handlePlayClick = () => {
+        setIsPlaying(true)
     }
 
     return (
@@ -205,6 +210,7 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
                                 width="100%"
                                 height="100%"
                                 controls
+                                playing
                             />
                         </div>
 

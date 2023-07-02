@@ -4,43 +4,41 @@ import styles from '@/styles/Home.module.css'
 import getConfig from "next/config";
 import { NextSeo } from 'next-seo'
 import Modules from '../components/modules'
-
+import { useEffect } from 'react';
 
 export default function Home({ pages, bios, showForm, setShowForm }) {
-  const { data } = pages
+  
+  useEffect(() => {
+    const homePage = pages.data.find((page) => page.attributes.Title === 'Home');
+    if (homePage) {
+      // Set SEO Content
+      NextSeo({
+        title: homePage.attributes.seo.metaTitle,
+        description: homePage.attributes.seo.metaDescription
+      });
+    }
+  }, [pages]);
+
+  const homePages = pages.data.filter((page) => page.attributes.Title === 'Home');
 
   return (
     <div>
-      {/* Get Home Page data */}
-      {data &&
-        data.map((page) => (
-          
+      {/* Render Home Pages */}
+      {homePages.map((page) => (
         <div className="page-home" key={page.id}>
-            {page.attributes.Title == 'Home' &&
-              <div className="helmet-backdrop"></div>
-            }
-
-            {page.attributes.Title == 'Home' &&
-              <Modules 
-                data={page} 
-                bios={bios.data.attributes.Bio}
-                showForm={showForm} 
-                setShowForm={setShowForm} 
-              />
-            }
-
-            {/* Set SEO Content */}
-            {page.attributes.Title == 'Home' &&
-              <NextSeo
-                title={page.attributes.seo.metaTitle}
-                description={page.attributes.seo.metaDescription}
-              />
-            }
-          </div>
-
+          
+          <div className="helmet-backdrop"></div>
+          
+          <Modules
+            data={page}
+            bios={bios.data.attributes.Bio}
+            showForm={showForm}
+            setShowForm={setShowForm}
+          />
+        </div>
       ))}
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
