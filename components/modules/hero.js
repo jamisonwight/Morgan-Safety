@@ -97,8 +97,8 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                             src={`${data.Image.data.attributes.url}`} 
                             alt="Hero Feature Image"
                             className="object-cover"
-                            fill 
-                            priority
+                            fill
+                            loading={index === 0 ? 'eager' : 'lazy'} 
                         />
                     </div>
                 </div>

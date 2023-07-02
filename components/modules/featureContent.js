@@ -58,7 +58,7 @@ export default function FeatureContent({ data, showForm, setShowForm, index }) {
                                 alt="Hero Feature Image"
                                 className="object-cover"
                                 fill
-                                priority 
+                                loading={index === 0 ? 'eager' : 'lazy'} 
                             />
                         </motion.div>
 
