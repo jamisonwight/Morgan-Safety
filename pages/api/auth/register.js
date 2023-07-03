@@ -17,8 +17,9 @@ export default async (req, res) => {
             email,
             password,
         })
-        const { message } = response.data
-        return res.status(200).json({ message })
+        return res.status(200).json({
+            message: `Check your email (${email}) and follow the instructions to confirm your account.`,
+        });
     } catch (error) {
         // Registration failed
         const message = error?.response?.data?.error?.message || 'Internal Server Error'

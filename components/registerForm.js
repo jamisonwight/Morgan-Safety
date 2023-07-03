@@ -8,6 +8,7 @@ export default function RegisterForm() {
     const { doRegister } = useContext(UserContext)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [alert, setAlert] = useState(['', ''])
+    const [isSucess, setIsSuccess] = useState(false)
     const {
         register,
         handleSubmit,
@@ -27,6 +28,7 @@ export default function RegisterForm() {
             setAlert(_return)
         } else {
             setAlert(_return)
+            setIsSuccess(true)
             reset()
         }
 
@@ -34,7 +36,7 @@ export default function RegisterForm() {
     }
 
     const styles = {
-        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[100px] max-w-[1440px] bg-black \
+        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center items-center py-[100px] max-w-[1440px] bg-black min-h-[600px]\
         -lg:px-[60px] -lg:pt-[80px]`,
         close: `absolute top-[40px] right-[60px]`,
         close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none\
@@ -50,7 +52,7 @@ export default function RegisterForm() {
             input_container: `mb-[20px] -lg:w-full`,
             btn_container: `w-full flex justify-center mt-[10px]`,
             btn: `min-w-[160px] mb-[40px]`,
-            error: `paragragh-3 block text-cyan`,
+            error: `paragragh-3 block text-cyan text-center`,
         }
     }
 
@@ -58,7 +60,9 @@ export default function RegisterForm() {
         <div
             className={`register ${styles.main}`}
             >
+            {!isSucess &&
             <div className={`content-container ${styles.content_container}`}>
+                
                 <div className={`title ${styles.title.main}`}>
                     <span className={`heading ${styles.title.heading}`}>
                         Sign Up
@@ -135,11 +139,12 @@ export default function RegisterForm() {
                                 {isSubmitting ? 'Registering...' : 'Register Now'}
                             </button>
                         </div>
-
-                        <span className={styles.form_container.error}>{alert[1]}</span>
                     </form>
                 </div>
             </div>
+            }
+
+            <span className={styles.form_container.error}>{alert[1]}</span>
         </div>
     )
 }

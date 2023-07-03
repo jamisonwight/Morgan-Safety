@@ -4,8 +4,6 @@ import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 
 export default function Hero({ data, showForm, setShowForm, index }) {
-    
-    const { publicRuntimeConfig } = getConfig()
 
     const styles =  {
         main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex overflow-hidden \

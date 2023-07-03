@@ -4,10 +4,7 @@ import cookie from 'cookie'
 export default async (req, res) => {
     if (req.method === 'POST') {
 
-        var resp = {}
-
-        resp = await instance
-        .post('/api/auth/local', req.body)
+        await instance.post('/api/auth/local', req.body)
         .then((response) => {
             const jwt = response.data.jwt
             const id = response.data.user.id

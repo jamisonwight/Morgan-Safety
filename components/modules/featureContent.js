@@ -1,4 +1,3 @@
-import getConfig from "next/config"
 import Button from '../partials/button'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
@@ -7,7 +6,6 @@ import { motion, useInView } from 'framer-motion'
 
 export default function FeatureContent({ data, showForm, setShowForm, index }) {
     
-    const { publicRuntimeConfig } = getConfig()
     const imageRef = useRef(null)
     const imageIsInView = useInView(imageRef, {amount: 0.3})
 

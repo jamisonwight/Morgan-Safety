@@ -20,7 +20,7 @@ export default function LoginForm() {
         if (_return[0] === 'alert') {
             setAlert(_return)
         } else {
-            setUser(_return.message.username)
+            setUser(_return)
         }
 
         setLoggingIn(false)

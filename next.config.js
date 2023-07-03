@@ -31,6 +31,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: 'https://morgan-safety-services-cms-s37eh.ondigitalocean.app/',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -27,7 +27,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const doLogin = async (values) => {
         try {
             const resp = await linstance.post('/api/auth/login', values)
-            return resp.data
+            return resp.data.message
         } catch (error) {
             return ['alert', error.response.data.message]
         }
