@@ -1,4 +1,5 @@
-import getConfig from "next/config";
+import { useContext } from 'react';
+import { UserContext } from '../../context/user';
 import Button from '../partials/button'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
@@ -7,7 +8,7 @@ import { motion, useInView } from 'framer-motion'
 
 export default function Team({ data, bios, showForm, setShowForm, index }) {
     
-    const { publicRuntimeConfig } = getConfig()
+    const { user } = useContext(UserContext)
     const bioRefs = useRef([])
     const bioIsInView = bioRefs.current.map(ref => useInView(ref, { amount: 0.3}));
 
@@ -29,7 +30,8 @@ export default function Team({ data, bios, showForm, setShowForm, index }) {
         container: `relative left-[50%] translate-x-[-50%] flex -lg:flex-col px-10 sm:py-[0] max-w-[1440px] z-20`,
         title_content: {
             main: `flex flex-col lg:flex-[50%] justify-center items-center \
-            lg:sticky lg:top-0 lg:h-[calc(100vh_+_97.5px)] -lg:pt-[100px] -lg:bg-black -lg:pb-[60px]`,
+            lg:sticky lg:top-0 -lg:pt-[100px] -lg:bg-black -lg:pb-[60px] \
+            ${user.confirmed ? 'lg:h-[calc(100vh_+_145px)]' : 'lg:h-[calc(100vh_+_97.5px)]'}`,
             content_container: `-lg:flex-col -lg:justify-center -lg:items-center`,
             title: {
                 main: `w-full flex mb-[10px]`,

@@ -3,7 +3,10 @@ import cookie from 'cookie'
 
 export default async (req, res) => {
     if (req.method === 'GET') {
-        const { token } = cookie.parse(req.headers.cookie)
+        
+        const { token, user } = cookie.parse(req.headers.cookie)
+
+        console.log(user)
 
         if (!token) {
             return res.status(403).json({ message: 'not authorized' })
@@ -21,11 +24,7 @@ export default async (req, res) => {
                 },
             })
 
-            res.status(200).json({
-                user: response.data.user,
-                email: response.data.user.email,
-                id: response.data.user.id,
-            })
+            res.status(200).json(user)
         } catch (error) {
             res.status(403).json({ message: 'not authorized' })
         }

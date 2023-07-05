@@ -42,9 +42,10 @@ export default function Button(
         }
         return (
             <a 
-                href={isMedia ? publicRuntimeConfig.BASE_URL + url : url }
+                href={url}
                 onClick={(e) => checkTrainingtrigger(e, isTrainingTrigger)}
                 className={classes}
+                target={isMedia ? '_blank' : '_self' }
                 >
                 <span className="!text-[inherit]">{text}</span>
             </a>

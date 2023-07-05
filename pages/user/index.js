@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/user'
 
 export default function User() {
-    const { user, email, checkLogin, setUser } = useContext(UserContext)
+    const { user, email, checkLogin } = useContext(UserContext)
 
     const styles = {
         main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black`,
@@ -10,16 +10,13 @@ export default function User() {
     }
 
     useEffect(() => {
-        const res = checkLogin()
-        if (res.status === 200) {
-            setUser(res.data)
-        }
+        checkLogin()
     }, [])
 
     return (
         <div className={`users`}>
             <div className={`container ${styles.main}`}>
-                <div className={`title ${styles.title}`}>Welcome {user && (email)}!</div>
+                <div className={`title ${styles.title}`}>Welcome {user.confirmed && (email)}!</div>
             </div>
         </div>
     )

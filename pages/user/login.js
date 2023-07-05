@@ -5,13 +5,10 @@ import { UserContext } from '../../context/user'
 import LoginForm from '../../components/loginForm'
 
 export default function Login() {
-    const { user, setUser, checkLogin } = useContext(UserContext)
+    const { user, checkLogin } = useContext(UserContext)
 
     useEffect(() => {
-        const res = checkLogin()
-        if (res.status === 200) {
-            setUser(res.data)
-        }
+        checkLogin()
     }, [])
 
     if (user.confirmed) {

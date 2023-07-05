@@ -1,14 +1,14 @@
-import getConfig from "next/config"
 import { mqMaxLarge } from "../../hooks/utils"
 import Button from '../partials/button'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { motion, useInView } from 'framer-motion'
+import { UserContext } from "../../context/user"
 
 export default function timelineImageContent({ data, showForm, setShowForm, index }) {
     
-    const { publicRuntimeConfig } = getConfig();
+    const { user } = useContext(UserContext)
     const imageRef = useRef(null)
     const imageIsInView = useInView(imageRef, {amount: 0.3})
     const contentRef = useRef(null)
@@ -35,12 +35,13 @@ export default function timelineImageContent({ data, showForm, setShowForm, inde
     const styles = {
         main: `tline after:tline-after tline-orange after:tline-orange-after w-full alt-order alt-color \
         -lg:py-[100px] -lg:bg-black -lg:overflow-x-hidden z-10`,
-        container: `relative block w-full left-[50%] translate-x-[-50%] flex -lg:flex-col justify-between px-10 max-w-[1200px] z-10 \
+        container: `relative block w-full left-[50%] translate-x-[-50%] flex -lg:flex-col justify-between px-20 max-w-[1200px] z-10 \
         -lg:bg-black before-padding`,
         image: {
             main: `lg:flex-[50%] relative justify-between items-center tline-marker-parent order-item-1 -lg:!order-1`,
-            content_wrap: `w-full flex justify-between -lg:justify-center items-center relative order-item-2\ 
-            lg:h-[calc(100vh_-_97.5px)] lg:sticky lg:top-[100px]`,
+            content_wrap: `w-full flex justify-between -lg:justify-center items-center relative order-item-2 \ 
+            lg:sticky \
+            ${user.confirmed ? 'lg:h-[calc(100vh_-_145px)] lg:top-[145px]' : 'lg:h-[calc(100vh_-_97.5px)] lg:top-[97px]'}`,
             tline_marker: `tline-marker-orange order-item-2 -lg:hidden`,
             img: `w-full h-full img img-cyan object-cover order-item-1`,
         },

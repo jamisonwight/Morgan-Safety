@@ -17,6 +17,17 @@ body, a, button {
   pointer-events: all;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @layer base {
   .heading-1 {
     @apply font-din text-h1 tracking-h1 leading-none uppercase;
@@ -205,6 +216,58 @@ body, a, button {
   .alt-order:nth-child(even) .img {
     width: 326px;
     height: 489px;
+  }
+}
+
+@media screen and (min-width: 1023px ) {
+  .img-wide,
+  .alt-order:nth-child(odd) .img {
+    width: 376px;
+    height: 230px;
+  }
+
+  .img-long,
+  .alt-order:nth-child(even) .img {
+    width: 276px;
+    height: 429px;
+  }
+
+  .img.img-wide::after,
+  .alt-order:nth-child(odd) .img::after {
+    top: -30px !important;
+    right: -30px !important;
+  }
+
+  .img.img-long::after,
+  .alt-order:nth-child(even) .img::after {
+    top: -30px !important;
+    left: -30px !important;
+  }
+}
+
+@media screen and (min-width: 1440px ) {
+  .img-wide,
+  .alt-order:nth-child(odd) .img {
+    width: 436px;
+    height: 290px;
+  }
+
+  .img-long,
+  .alt-order:nth-child(even) .img {
+    width: 326px;
+    height: 489px;
+  }
+
+  .img.img-wide::after,
+  .alt-order:nth-child(odd) .img::after {
+    top: -40px !important;
+    right: -40px !important;
+  }
+
+  .img.img-long::after,
+  .alt-order:nth-child(even) .img::after {
+    top: -40px !important;
+    left: -40px !important;
   }
 }
 

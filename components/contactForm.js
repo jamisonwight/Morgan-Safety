@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../context/user'
 import { motion, AnimatePresence, useAnimation, useCycle } from 'framer-motion'
 import getConfig from "next/config"
 import axios from 'axios'
@@ -8,6 +9,7 @@ import {RemoveScroll} from 'react-remove-scroll'
 
 export default function ContactForm({ data, showForm, setShowForm }) {
     
+    const { user } = useContext(UserContext)
     const { publicRuntimeConfig } = getConfig();
     const router = useRouter();
     const [First_Name, setFirstName] = useState('')
@@ -131,7 +133,8 @@ export default function ContactForm({ data, showForm, setShowForm }) {
     }
 
     const styles = {
-        motion: `fixed bottom-0 left-0 right-0 h-[calc(100vh_-_120px)] z-[100]`,
+        motion: `fixed bottom-0 left-0 right-0 z-[100] \
+        ${user.confirmed ? 'h-[calc(100vh_-_165px)]' : 'h-[calc(100vh_-_120px)]'}`,
         main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black\
         border-orange border-[1px] border-solid border-b-0 rounded-t-[108px] -lg:px-[60px] -lg:pt-[80px]`,
         close: `absolute top-[40px] right-[60px]`,

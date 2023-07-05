@@ -1,6 +1,7 @@
 import { useState, createContext } from 'react'
 import { linstance } from '../lib/api'
 import useRouter from 'next/router'
+import cookie from 'cookie'
 
 export const UserContext = createContext(null)
 
@@ -36,8 +37,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const checkLogin = async () => {
         try {
             const resp = await linstance.get('/api/auth/user')
-            const _data = await resp.data.message
-            console.log(_data)
+            const _data = JSON.parse(resp.data)
 
             setUser({
                 confirmed: _data.confirmed,
@@ -48,7 +48,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
             setEmail(_data.email)
             setId(_data.id)
 
-            return resp
+            return _data
         } catch (error) {
             return error.response
         }
@@ -67,7 +67,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     const doGoogleCallback = async (values) => {
         try {
             const resp = await linstance.post('/api/auth/google/callback', values)
-            const _data = await resp.data.message
+            const _data = resp.data.message
 
             setUser({
                 confirmed: _data.confirmed,
@@ -78,9 +78,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
             setEmail(_data.email)
             setId(_data.id)
 
-            console.log(_data)
-
-            return ['OK', resp.data.message]
+            return ['OK', _data]
         } catch (error) {
             return ['alert', error.response.data.message]
         }

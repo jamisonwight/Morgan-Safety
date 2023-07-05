@@ -1,15 +1,19 @@
-import getConfig from "next/config"
+import { useContext } from 'react'
 import Button from '../partials/button'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
+import { UserContext } from '../../context/user'
 
 export default function Hero({ data, showForm, setShowForm, index }) {
+
+    const { user } = useContext(UserContext)
 
     const styles =  {
         main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex overflow-hidden \
         -lg:min-h-[calc(100vh_-_100px)] lg:min-h-[100vh]`,
-        container: `relative left-[50%] translate-x-[-50%] xs:flex-col lg:flex px-10 pb-[100px] h-full max-w-[1200px] z-20 \
-        -lg:mt-[60px] -lg:bg-black lg:min-h-[100vh]`,
+        container: `relative left-[50%] translate-x-[-50%] xs:flex-col lg:flex px-10 h-full max-w-[1200px] z-20 \
+        lg:px-20 -lg:mt-[60px] -lg:bg-black -lg:pb-[60px] \ 
+        ${user.confirmed ? 'lg:min-h-[calc(100vh_-_145px)]' : 'lg:min-h-[calc(100vh_-_97.5px)]'}`,
         content: `flex flex-[100%] lg:flex-[50%] justify-between items-center relative -lg:bg-black`,
         content_container: {
             main: `tline-marker-parent`,

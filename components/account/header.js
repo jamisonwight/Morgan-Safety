@@ -20,10 +20,7 @@ export default function AccountHeader() {
     }
 
     useEffect(() => {
-        const res = checkLogin()
-        if (res.status === 200) {
-            setUser(res.data)
-        }
+        checkLogin()
     }, [])
 
     return (

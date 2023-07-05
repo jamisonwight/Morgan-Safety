@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import getConfig from "next/config"
 import { getDynamicLink } from "@/hooks/getDynamicLink"
 import Button from './partials/button'
+import logo from '../assets/images/logo.svg'
 
 export default function MobileMenu({ 
     links, 
@@ -69,12 +70,12 @@ export default function MobileMenu({
 
                 <div className={`content-container ${styles.content_container}`}>
                     <div className={`logo ${styles.logo.main}`}>
-                        {links &&
-                            <ReactSVG 
-                                src={publicRuntimeConfig.BASE_URL + links.Logo.data.attributes.url}
-                                className={styles.logo.svg} 
-                            />
-                        }
+                    {links &&
+                        <ReactSVG 
+                            src={links.Logo.data.attributes.url}
+                            className={styles.logo.svg} 
+                        />
+                    }
                     </div>
 
                     <div className={`menu ${styles.menu.main}`}>
@@ -84,6 +85,7 @@ export default function MobileMenu({
                                 <motion.li 
                                     key={links.id}
                                     whileHover={animation}
+                                    onClick={closeHandler}
                                     >
                                     {getDynamicLink(
                                         link.Text, 
