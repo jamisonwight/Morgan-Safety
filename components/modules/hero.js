@@ -30,7 +30,7 @@ export default function Hero({ data, showForm, setShowForm, index }) {
             description: `paragraph-1 text-cyan pb-[30px] max-w-[500px] \
             -lg:text-center -lg:relative -lg:left-[50%] -lg:translate-x-[-50%]`,
             btn_container: `flex flex-wrap self-start -lg:justify-center`,
-            button: `flex m-10px] -lg:m-[5px] -lg:mb-[10px]`,
+            button: `flex m-10px] m-[10px] -lg:mb-[5px]`,
             tline_marker: `tline-marker-orange top-[100px]`,
         },
         image: {
