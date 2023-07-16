@@ -28,11 +28,11 @@ export default function MobileMenu({
 
     const styles = {
         motion: `fixed bottom-0 left-0 right-0 h-[calc(100vh_-_120px)] z-[80]`,
-        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black\
-        border-orange border-[1px] border-solid border-b-0 rounded-t-[108px]`,
+        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[60px] max-w-[1440px] bg-black ` +
+            `border-orange border-[1px] border-solid border-b-0 rounded-t-[108px]`,
         close: `absolute top-[40px] right-[60px]`,
-        close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none\
-        focus:ring-2 hover:ring-2 hover:ring-orange focus:ring-inset focus:ring-orange`,
+        close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none ` +
+            `focus:ring-2 hover:ring-2 hover:ring-orange focus:ring-inset focus:ring-orange`,
         content_container: `w-full max-w-[650px] overflow-y-scroll scrollbar-hide flex-col justify-center items-center text-center`,
         logo: {
             main: `w-full text-center mt-[40px]`,

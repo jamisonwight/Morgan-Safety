@@ -17,8 +17,8 @@ export default function footer({ data, showForm, setShowForm }) {
 
     const styles = {
       main: `w-full bg-black z-20 border-orange border-t-[1px] border-orange border-solid`,
-      container: `full relative left-[50%] translate-x-[-50%] flex justify-between items-end px-4 py-[40px] max-w-[1440px] bg-black z-20 \
-      -lg:flex-wrap -sm:flex-col -sm:items-center`,
+      container: `full relative left-[50%] translate-x-[-50%] flex justify-between items-end px-4 py-[40px] max-w-[1440px] bg-black z-20 ` +
+        `-lg:flex-wrap -sm:flex-col -sm:items-center`,
       contact_info: {
         main: `flex-col flex-[50%]`,
         phone: `heading-6 text-orange mb-[10px]`,
@@ -61,14 +61,16 @@ export default function footer({ data, showForm, setShowForm }) {
             <div className={`links ${styles.legal.links}`}>
             {data.Menu &&
               data.Menu.map((link) => (
-                <li>
-                  <a 
-                    href={link.URL}
-                    className={styles.legal.anchor}
-                    >
-                    {link.Text}
-                  </a>
-                </li>
+                <ul>
+                  <li>
+                    <a 
+                      href={link.URL}
+                      className={styles.legal.anchor}
+                      >
+                      {link.Text}
+                    </a>
+                  </li>
+                </ul>
               ))
             }
             </div>

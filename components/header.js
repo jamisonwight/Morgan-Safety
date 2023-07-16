@@ -58,7 +58,7 @@ export default function Header({
             <div className={`wrapper ${styles.wrapper}`}>
                 <div className={`logo ${styles.logo.main}`}>
                     {links &&
-                        <Link href="/">
+                        <Link href="/" aria-label='Morgan Safety Services'>
                             <ReactSVG 
                                 src={links.Logo.data.attributes.url}
                                 className={styles.logo.svg} 

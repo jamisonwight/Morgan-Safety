@@ -17,12 +17,12 @@ export default function FeatureContent({ data, showForm, setShowForm, index }) {
 
     const styles =  {
         main: `tline lg:after:tline-after tline-orange after:tline-orange-after w-full bg-black z-10 alt-order`,
-        container: `w-full relative left-[50%] translate-x-[-50%] flex px-10 sm:py-[0] max-w-[100%]\
-        -lg:flex-col`,
+        container: `w-full relative left-[50%] translate-x-[-50%] flex px-10 sm:py-[0] max-w-[100%] ` +
+            `-lg:flex-col`,
         image: {
             main: `flex flex-col flex-[50%] justify-center items-center tline-marker-parent`,
-            content_wrap: `w-full flex flex-col justify-center items-center relative block\
-            lg:sticky lg:top-[100px] lg:h-[calc(100vh_-_97.5px)] -lg:pt-[100px]`,
+            content_wrap: `w-full flex flex-col justify-center items-center relative block ` +
+                `lg:sticky lg:top-[100px] lg:h-[calc(100vh_-_97.5px)] -lg:pt-[100px]`,
             img: `w-full img img-cyan order-item-2 -sm:!w-[calc(100%_-_20px)]`,
         },
         content: {

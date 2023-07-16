@@ -36,11 +36,11 @@ export default function RegisterForm() {
     }
 
     const styles = {
-        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center items-center py-[100px] max-w-[1440px] bg-black min-h-[600px]\
-        -lg:px-[60px] -lg:pt-[80px]`,
+        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center items-center py-[100px] max-w-[1440px] bg-black min-h-[600px] ` +
+            `-lg:px-[60px] -lg:pt-[80px]`,
         close: `absolute top-[40px] right-[60px]`,
-        close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none\
-        focus:ring-2 hover:ring-2 hover:ring-orange focus:ring-inset focus:ring-orange`,
+        close_button: `bg-black rounded-md border-orange border-solid border-[1px] p-2 inline-flex items-center justify-center text-orange focus:outline-none ` +
+            `focus:ring-2 hover:ring-2 hover:ring-orange focus:ring-inset focus:ring-orange`,
         content_container: `w-full max-w-[650px] overflow-y-scroll scrollbar-hide -lg:pt-[40px]`,
         title: {
             main: `heading-4 text-orange normal-case text-center -sm:text-[25px]`,

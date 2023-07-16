@@ -175,6 +175,11 @@ body, a, button {
     width: 80%;
     height: auto;
   }
+
+  .video-rounded .react-player__preview,
+  .video-rounded .react-player__preview::after {
+    border-radius: 58px !important;
+  }
 }
 
 @media screen and (min-width: 0 ) {

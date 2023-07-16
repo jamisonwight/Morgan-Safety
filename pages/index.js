@@ -31,7 +31,7 @@ export default function Home({ pages, bios, showForm, setShowForm }) {
           
           <Modules
             data={page}
-            bios={bios.data.attributes.Bio}
+            bios={bios?.data.attributes.Bio}
             showForm={showForm}
             setShowForm={setShowForm}
           />

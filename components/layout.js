@@ -27,7 +27,7 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
         children={
           <>
             <Header 
-              links={hdata && hdata.data.attributes} 
+              links={hdata?.data.attributes} 
               showForm={showForm} 
               setShowForm={setShowForm}
               showMobileMenu={showMobileMenu} 
@@ -38,7 +38,7 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
 
             {showMobileMenu && 
               <MobileMenu 
-                links={hdata && hdata.data.attributes}
+                links={hdata?.data.attributes}
                 showForm={showForm} 
                 setShowForm={setShowForm} 
                 showMobileMenu={showMobileMenu} 
@@ -57,7 +57,7 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
               />
             }
 
-            <Footer data={fdata && fdata.data.attributes} showForm={showForm} setShowForm={setShowForm} />
+            <Footer data={fdata?.data.attributes} showForm={showForm} setShowForm={setShowForm} />
           </>
         } 
       />

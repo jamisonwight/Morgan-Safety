@@ -43,8 +43,8 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
         },
         content_details: {
             main: `w-full relative flex flex-wrap`,
-            content_item: `relative flex w-[50%] -lg:w-full items-center justify-between relative alt-order lg:even:top-[100px] mb-[100px] \
-            -lg:mb-[60px] -lg:odd:text-right -lg:odd:pl-[20%] -lg:even:pr-[20%]`,
+            content_item: `relative flex w-[50%] items-center justify-between relative alt-order mb-[100px] ` +
+                `lg:even:top-[100px] -lg:mb-[60px] -lg:w-full -lg:odd:text-right -lg:odd:pl-[20%] -lg:even:pr-[20%]`,
             content_container: {
                 main: `tline-marker-parent lg:max-w-[400px] flex-col order-item-2`,
                 title: {
@@ -59,7 +59,7 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
             cta_button: `!inline-flex mt-[20px]`,
         },
         video_content: {
-            main: `relative w-full flex flex-col justify-center items-center mt-[80px] py-[20px] -lg:px-[20px] bg-cyan z-10`,
+            main: `relative w-full flex flex-col justify-center items-center mt-[80px] lg:py-[20px] -lg:px-[20px] bg-cyan z-10`,
             container: `w-full flex flex-col justify-center items-center`,
             video: `video-rounded relative w-[600px] h-[400px] overflow-hidden -lg:w-full -lg:h-full`,
             poster: `w-full h-full object-cover`,
