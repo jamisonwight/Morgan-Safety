@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
-import { motion, AnimatePresence, useAnimation, useCycle } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import getConfig from "next/config"
 import axios from 'axios'
 import validator from 'validator'
@@ -45,12 +45,12 @@ export default function ContactForm({ data, showForm, setShowForm }) {
         }
 
          // If there are errors, update the state and don't submit the form
-         if (Object.keys(formErrors).length > 0) {
+        if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors)
         }
 
         if (Object.keys(formErrors).length > 0) {
-          throw formErrors
+            throw formErrors
         }
     }
 

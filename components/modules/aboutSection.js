@@ -9,7 +9,6 @@ import { motion, useInView, useScroll, useSpring } from 'framer-motion'
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {
     
-    const { publicRuntimeConfig } = getConfig()
     const imageRef = useRef(null)
     const imageIsInView = useInView(imageRef, {amount: 0.3})
     const contentRefs = useRef([])

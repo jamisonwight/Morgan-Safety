@@ -12,13 +12,13 @@ export default function Hero({ data, showForm, setShowForm, index }) {
         main: `tline after:tline-after tline-orange after:tline-orange-after w-full h-full bg-black z-10 flex overflow-hidden \
         -lg:min-h-[calc(100vh_-_100px)] lg:min-h-[100vh]`,
         container: `relative left-[50%] translate-x-[-50%] xs:flex-col lg:flex px-10 h-full max-w-[1200px] z-20 \
-        lg:px-20 -lg:mt-[60px] -lg:bg-black -lg:pb-[60px] \ 
+        lg:px-20 -lg:mt-[40px] -lg:bg-black -lg:pb-[60px] \ 
         ${user.confirmed ? 'lg:min-h-[calc(100vh_-_145px)]' : 'lg:min-h-[calc(100vh_-_97.5px)]'}`,
         content: `flex flex-[100%] lg:flex-[50%] justify-between items-center relative -lg:bg-black`,
         content_container: {
             main: `tline-marker-parent`,
             title: {
-                main: `w-full flex -lg:items-center mb-[20px]`,
+                main: `w-full flex mb-[20px] -lg:items-center -lg:justify-center`,
                 inner_title: `heading-1 text-orange flex items-center lg:max-w-[286px] mt-[20px]\ 
                 -sm:text-[30px] ${data.Title_Image.data ? 'ml-[15px]' : ''}`,
                 image: {
@@ -26,10 +26,11 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                     img: `-lg:max-w-[135px] max-w-[165px] self-start`,
                 },
             },
-            subtitle: `heading-3 text-cyan block pb-[10px]`,
-            description: `paragraph-1 text-cyan pb-[30px] lg:max-w-[500px]`,
-            btn_container: `flex flex-wrap self-start`,
-            button: `flex m-[5px] -lg:mb-[10px]`,
+            subtitle: `heading-3 text-cyan block pb-[10px] -lg:text-center`,
+            description: `paragraph-1 text-cyan pb-[30px] max-w-[500px] \
+            -lg:text-center -lg:relative -lg:left-[50%] -lg:translate-x-[-50%]`,
+            btn_container: `flex flex-wrap self-start -lg:justify-center`,
+            button: `flex m-10px] -lg:m-[5px] -lg:mb-[10px]`,
             tline_marker: `tline-marker-orange top-[100px]`,
         },
         image: {
@@ -48,9 +49,11 @@ export default function Hero({ data, showForm, setShowForm, index }) {
                         <div className={`title ${styles.content_container.title.main}`}>
                             {data.Title_Image.data ? (
                                 <div className={`image ${styles.content_container.title.image.main}`}>
-                                    <img 
+                                    <Image
                                         src={`${data.Title_Image.data.attributes.url}`} 
                                         alt="Hero Title Image" 
+                                        width={165}
+                                        height={165}
                                         className={`${styles.content_container.title.image.img}`}
                                         />
                                 </div>
