@@ -39,8 +39,8 @@ export default async (req, res) => {
         })
     } catch (error) {
         // Payment failed
-        console.log(error)
         const message = error?.response?.data?.error?.message || 'Internal Server Error'
+        console.log(message)
         return res.status(500).json({ message })
     }
 }

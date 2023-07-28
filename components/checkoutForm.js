@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import { linstance } from '../../lib/api'
+import { linstance } from '../lib/api'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { useInitialRender } from "../../hooks/useInitialRender"
+import { useInitialRender } from "../hooks/useInitialRender"
 
 export default function CheckoutForm() {
 

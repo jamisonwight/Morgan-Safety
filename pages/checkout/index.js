@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import { useInitialRender } from "../../hooks/useInitialRender"
-import CheckoutForm from "./checkoutForm"
+import CheckoutForm from "../../components/checkoutForm"
 import { UserContext } from '../../context/user'
 
 const stripePromise = loadStripe("pk_test_51NVzLYISmtDOo3NfinGKJFa40kaVu7rqstmMnV2h4rjbarHEQlogiHIShSGW7206a5lghJJXsHUPz0RB09ud0rPO006qJqTXlH")
