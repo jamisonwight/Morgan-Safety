@@ -18,7 +18,7 @@ export default function FacebookLogin() {
             <button
                 className={styles.button}
                 onClick={() => (
-                    window.location = `${publicRuntimeConfig.API_URL}/api/connect/google`
+                    window.location = `${publicRuntimeConfig.API_URL}/api/connect/facebook`
                 )}
                 >
                 <AiFillFacebook className={styles.icon} /> 

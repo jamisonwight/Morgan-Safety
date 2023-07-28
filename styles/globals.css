@@ -280,17 +280,28 @@ body, a, button {
   width: 80%;
 }
 
+.card-input {
+  border: 1px solid #94D2BD !important;
+  border-radius: 108px;
+  background: transparent;
+  padding: 12px 15px;
+  color: #EE9B00;
+  width: 100%;
+  font-size: 18px;
+}
+
 input[type="text"],
 input[type="number"],
 input[type="password"],
 input[type="email"],
 select {
-  border: 1px solid #94D2BD;
+  border: 1px solid #94D2BD !important;
   border-radius: 108px;
   background: transparent;
   padding: 8px 15px;
   color: #EE9B00;
   width: 100%;
+  font-size: 18px;
 }
 
 input[type="text"]::placeholder,

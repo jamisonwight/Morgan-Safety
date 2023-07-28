@@ -14,6 +14,7 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
     })
     const [email, setEmail] = useState()
     const [id, setId] = useState()
+    const [intentPurchase, setIntentPurchase] = useState(false)
 
     const doRegister = async (values) => {
         // var ret = ['niente']
@@ -47,6 +48,8 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
             })
             setEmail(_data.email)
             setId(_data.id)
+
+            console.log(_data)
 
             return _data
         } catch (error) {
@@ -84,6 +87,34 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
         }
     }
 
+    const doFacebookCallback = async (values) => {
+        try {
+            const resp = await linstance.post('/api/auth/facebook/callback', values)
+            const _data = resp.data.message
+
+            setUser({
+                confirmed: _data.confirmed,
+                id: _data.id,
+                username: _data.username,
+                email: _data.email,
+            })
+            setEmail(_data.email)
+            setId(_data.id)
+
+            return ['OK', _data]
+        } catch (error) {
+            return ['alert', error.response.data.message]
+        }
+    }
+
+    const doIntentPurchase = async (isIntent) => {
+        setIntentPurchase(isIntent)
+    }
+
+    // checkUserPaid = async () => {
+
+    // }
+
     const useract = {
         doRegister: doRegister,
         user: user,
@@ -96,6 +127,9 @@ const UserProvider = ({ children, showForm, setShowForm }) => {
         doLogin: doLogin,
         doLogout: doLogout,
         doGoogleCallback: doGoogleCallback,
+        doFacebookCallback: doFacebookCallback,
+        intentPurchase: intentPurchase,
+        setIntentPurchase: doIntentPurchase,
     }
 
     return (

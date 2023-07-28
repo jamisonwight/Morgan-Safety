@@ -57,6 +57,16 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
               />
             }
 
+            <CookieConsent
+              buttonText="I Accept"
+              cookieName="CookieConsent"
+              style={{ background: "#2B373B" }}
+              buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+              expires={150}
+              >
+              This website uses cookies to enhance the user experience.
+            </CookieConsent>
+
             <Footer data={fdata?.data.attributes} showForm={showForm} setShowForm={setShowForm} />
           </>
         } 

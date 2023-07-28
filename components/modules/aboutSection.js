@@ -1,18 +1,13 @@
-import getConfig from "next/config"
 import Button from '../partials/button'
 import Image from 'next/image'
 import logo from '../../assets/images/logo.svg'
 import ReactPlayer from 'react-player/lazy'
 import ReactMarkdown from 'react-markdown'
 import { useRef, useState } from "react"
-import { motion, useInView, useScroll, useSpring } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {
     
-    const imageRef = useRef(null)
-    const imageIsInView = useInView(imageRef, {amount: 0.3})
-    const contentRefs = useRef([])
-    const contentIsInView = contentRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true }))
     const contentItemRefs = useRef([])
     const contentItemIsInView = contentItemRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true}))
     const [isPlaying, setIsPlaying] = useState(false)

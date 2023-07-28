@@ -1,15 +1,10 @@
-import getConfig from "next/config"
 import {
     Link,
-    Element,
-    Events,
     animateScroll as scroll,
-    scroller,
-  } from "react-scroll"
+} from "react-scroll"
 
 export default function Button(
     { type, text, url, isTrainingTrigger, classes, showForm, setShowForm, isMedia = false }) {
-    const { publicRuntimeConfig } = getConfig()
 
     function checkTrainingtrigger(event, isTrigger) {
         if (isTrigger) {

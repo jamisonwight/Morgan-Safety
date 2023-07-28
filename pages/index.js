@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import getConfig from "next/config";
+import getConfig from "next/config"
 import { NextSeo } from 'next-seo'
 import Modules from '../components/modules'
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react'
 
 export default function Home({ pages, bios, showForm, setShowForm }) {
   

@@ -42,10 +42,11 @@ export default function LoginForm() {
             form: `w-full mt-[40px] flex flex-col flex-wrap items-center`,
             input_container: `mb-[20px] -lg:w-full`,
             btn_container: `w-full flex justify-center mt-[10px]`,
-            btn: `min-w-[160px] mb-[40px]`,
+            btn: `min-w-[160px] mb-[10px]`,
             error: `paragragh-3 block text-cyan`,
         },
-        forgot_link: `paragraph-1 text-orange block mt-[40px] text-center`,
+        forgot_link: `paragraph-1 text-orange block mt-[20px] text-center`,
+        social_logins: `relative mt-[50px]`
     }
 
     return (
@@ -100,16 +101,16 @@ export default function LoginForm() {
                             </button>
                         </div>
 
+                        <div className={`forgot-password`}>
+                            <a className={styles.forgot_link} href="/user/forgotpassword">Forgot password?</a>
+                        </div>
+
                         <span className={styles.form_container.error}>{alert[1]}</span>
                     </form>
 
                     <div className={`social-logins ${styles.social_logins}`}>
                         <GoogleLogin />
-                        <FacebookLogin />
-                    </div>
-
-                    <div className={`forgot-password`}>
-                        <a className={styles.forgot_link} href="/user/forgotpassword">Forgot password?</a>
+                        {/* <FacebookLogin /> */}
                     </div>
                 </div>
             </div>
