@@ -3,10 +3,6 @@
 const nextConfig = {
   reactStrictMode: true,
   publicRuntimeConfig: {
-    TEST_EMAIL: process.env.TEST_EMAIL,
-    TEST_EMAIL_PW: process.env.TEST_EMAIL_PW,
-    ADMIN_EMAIL: process.env.ADMIN_EMAIL,
-    ADMIN_EMAIL_PW: process.env.ADMIN_EMAIL_PW,
     BASE_URL: process.env.BASE_URL,
     API_URL: process.env.API_URL,
     API_HEADER: process.env.API_HEADER,
@@ -14,6 +10,7 @@ const nextConfig = {
     API_PAGES: process.env.API_PAGES,
     API_CONTACTS: process.env.API_CONTACTS,
     API_BIOS: process.env.API_BIOS,
+    API_TRAINING_COURSES: process.env.API_TRAINING_COURSES,
   },
   images: {
     remotePatterns: [
