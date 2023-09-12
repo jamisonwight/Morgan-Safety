@@ -16,7 +16,7 @@ export default async (req, res) => {
 
     const message = {
       from: `Morgan Safety Services <${process.env.ADMIN_EMAIL}>`, // replace with your email address
-      to: [process.env.ADMIN_EMAIL], // replace with the recipient email address
+      to: [process.env.ADMIN_EMAIL, process.env.CSR_EMAIL], // replace with the recipient email address
       subject: 'Schedule Training / Contact Form Submission',
       html: `    
         <p>Name: ${name}</p>
