@@ -1,9 +1,17 @@
-import nodemailer from 'nodemailer';
-
+import nodemailer from 'nodemailer'
+import text from 'textbelt'
 import 'dotenv/config'
 
 export default async (req, res) => {
-  const { name, email, phoneNumber, formType, trainingType, numberOfPeople, comments } = req.body;
+  const { 
+    name, 
+    email, 
+    phoneNumber, 
+    formType, 
+    trainingType, 
+    numberOfPeople, 
+    comments 
+  } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -16,7 +24,7 @@ export default async (req, res) => {
 
     const message = {
       from: `Morgan Safety Services <${process.env.ADMIN_EMAIL}>`, // replace with your email address
-      to: [process.env.ADMIN_EMAIL, process.env.CSR_EMAIL], // replace with the recipient email address
+      to: [ process.env.ADMIN_EMAIL, process.env.CSR_EMAIL ], // replace with the recipient email address
       subject: 'Schedule Training / Contact Form Submission',
       html: `    
         <p>Name: ${name}</p>
@@ -33,6 +41,24 @@ export default async (req, res) => {
     };
 
     await transporter.sendMail(message);
+
+    const messageSMS = `
+      <b>MSS New Contact</b> 
+    
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phoneNumber}
+      Form Type: ${formType}
+
+      Message: ${message}
+    `
+
+    // Send SMS Message to Admin numbers
+    text.send('4174029696', messageSMS, undefined, function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
 
     res.status(200).json({ success: true });
   } catch (error) {
