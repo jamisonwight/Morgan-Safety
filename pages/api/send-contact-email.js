@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import text from 'textbelt'
+import { sendText } from 'textbelt'
 import 'dotenv/config'
 
 export default async (req, res) => {
@@ -54,7 +54,7 @@ export default async (req, res) => {
     `
 
     // Send SMS Message to Admin numbers
-    text.send('4174029696', messageSMS, undefined, function(err) {
+    sendText('4174029696', messageSMS, undefined, function(err) {
       if (err) {
         console.log(err);
       }
