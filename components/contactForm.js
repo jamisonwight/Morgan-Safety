@@ -66,7 +66,6 @@ export default function ContactForm({ data, showForm, setShowForm }) {
                 numberOfPeople: Number_Of_People,
                 comments: Comments,
             });
-            console.log('Email sent successfully!');
         } catch (error) {
             console.error('Error sending email:', error);
         }
@@ -78,9 +77,26 @@ export default function ContactForm({ data, showForm, setShowForm }) {
                 email: Email,
                 form_type: Form_Type,
             });
-            console.log('Thank you email sent successfully!');
         } catch (error) {
             console.error('Error sending thank you email:', error);
+        }
+    }
+
+    const sendSMS = async () => {
+        // Contact email to Admin
+        try {
+            await axios.post('/api/send-contact-sms', {
+                name: `${First_Name} ${Last_Name}`,
+                email: Email,
+                phoneNumber: Phone_Number,
+                formType: Form_Type,
+                trainingType: Training_Type,
+                numberOfPeople: Number_Of_People,
+                comments: Comments,
+            });
+            console.log('SMS sent successfully!');
+        } catch (error) {
+            console.error('Error sending SMS:', error);
         }
     }
 
@@ -110,8 +126,8 @@ export default function ContactForm({ data, showForm, setShowForm }) {
         
             if (response.ok) {
                 // Handle success
-                console.log('Form submitted successfully!')
                 sendEmail()
+                sendSMS()
                 setShowForm(false)
                 router.push('/thank-you');
             } else {
