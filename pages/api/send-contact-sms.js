@@ -10,7 +10,7 @@ export default async (req, res) => {
         trainingType, 
         numberOfPeople, 
         comments 
-    } = req.body;
+    } = req.body
   
     try {
         const smsApi = new api.SMSApi(process.env.CLICKSEND_USERNAME, process.env.CLICKSEND_API_KEY)
@@ -38,12 +38,12 @@ export default async (req, res) => {
         
         smsApi.smsSendPost(smsCollection).then(function(response) {
             console.log(response.body)
-            res.status(200).json({ success: true });
+            res.status(200).json({ success: true })
         }).catch(function(err){
             console.error(err.body)
         })
     } catch (error) {
-        console.error('SMS error:', error);
-        res.status(500).json({ success: false });
+        console.error('SMS error:', error)
+        res.status(500).json({ success: false })
     }
 }
