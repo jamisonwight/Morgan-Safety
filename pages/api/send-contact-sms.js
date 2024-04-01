@@ -45,8 +45,6 @@ export default async (req, res) => {
                 smsCollection.messages = [message]
                 
                 const response =  await smsApi.smsSendPost(smsCollection)
-                console.log('SMS response:', response.body)
-
             } catch (error) {
                 console.log('SMS response:', error)
             }
