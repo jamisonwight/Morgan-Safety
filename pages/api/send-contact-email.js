@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer'
-import { SMSApi, SMSMessage } from 'clicksend'
 import 'dotenv/config'
 
 export default async (req, res) => {
