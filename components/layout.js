@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from "framer-motion";
 import CookieConsent from "react-cookie-consent"
 import UserProvider from '../context/user'
 import Header from './header'
@@ -10,11 +11,11 @@ import MobileMenu from './mobileMenu'
 
 export default function Layout({ children, showForm, setShowForm, showMobileMenu, setShowMobileMenu }) {
   
-  const { publicRuntimeConfig } = getConfig();
+  const { publicRuntimeConfig } = getConfig()
   const [showIsMenuOpen, setShowIsMenuOpen] = useState(false)
-  const headerURL = publicRuntimeConfig?.API_HEADER;
+  const headerURL = publicRuntimeConfig?.API_HEADER
   const {data: hdata} = useSWR(headerURL, (apiURL) => fetch(apiURL).then(res => res.json()))
-  const footerURL = publicRuntimeConfig?.API_FOOTER;
+  const footerURL = publicRuntimeConfig?.API_FOOTER
   const { data: fdata } = useSWR(footerURL, (apiURL) => fetch(apiURL).then(res => res.json()))
 
   const handleIsMenuOpen = (isMenuOpenState) => {
@@ -47,7 +48,7 @@ export default function Layout({ children, showForm, setShowForm, showMobileMenu
                 setShowIsMenuOpen={handleIsMenuOpen}  
               />
             }
-
+          
             {children}
 
             {showForm && 

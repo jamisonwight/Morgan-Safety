@@ -5,9 +5,11 @@ import ReactPlayer from 'react-player/lazy'
 import ReactMarkdown from 'react-markdown'
 import { useRef, useState } from "react"
 import { motion, useInView } from 'framer-motion'
+import { useInitialRender } from "../../hooks/useInitialRender"
 
 export default function aboutSection({ data, showForm, setShowForm, index }) {
     
+    const initialRender = useInitialRender()
     const contentItemRefs = useRef([])
     const contentItemIsInView = contentItemRefs.current.map(ref => useInView(ref, { amount: 0.6, once: true}))
     const [isPlaying, setIsPlaying] = useState(false)
@@ -67,6 +69,8 @@ export default function aboutSection({ data, showForm, setShowForm, index }) {
     const handlePlayClick = () => {
         setIsPlaying(true)
     }
+
+    if (!initialRender) return null
 
     return (
         <div className={`about-section ${styles.main}`} id={`module-${index}`}>

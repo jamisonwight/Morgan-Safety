@@ -7,6 +7,7 @@ import Button from './partials/button'
 import { motion } from 'framer-motion'
 import { UserContext } from '../context/user'
 import AccountHeader from './account/header'
+import UserAuthMenu from './userAuthMenu'
 
 export default function Header({ 
     links, 
@@ -72,7 +73,7 @@ export default function Header({
                         {links &&
                         links.menu_main.map((link) => (
                             <motion.li 
-                                key={links.id}
+                                key={link.id}
                                 whileHover={animation}
                                 >
                                 {getDynamicLink(
@@ -86,6 +87,8 @@ export default function Header({
                 </div>
 
                 <div className={`btn-container ${styles.btn_container.main}`}>
+                    <UserAuthMenu />
+                    
                     <Button
                         type='fill-black'
                         text='Schedule Training'

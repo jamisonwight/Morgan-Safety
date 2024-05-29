@@ -17,6 +17,21 @@ body, a, button {
   pointer-events: all;
 }
 
+a.btn-default {
+  padding: 10px 45px;
+  border-radius: 108px;
+  color: #EE9B00;
+  border: 1px solid #EE9B00;
+  min-width: 160px;
+  font-weight: bold;
+}
+
+a.btn-default:hover {
+  color: #070707;
+  background: #EE9B00;
+  min-width: 160px;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -26,6 +41,22 @@ body, a, button {
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.alert-user {
+  display: block;
+  padding: 20px;
+  border: 2px solid #94D2BD;
+  text-align: center;
+  font-weight: bold; 
+}
+
+.alert-user.alert-top {
+  margin-bottom: 40px;
+}
+
+.alert-user.alert-bottom {
+  margin-top: 40px
 }
 
 @layer base {
@@ -73,9 +104,11 @@ body, a, button {
     text-decoration: underline !important;
     color: #94D2BD;
   }
+
   .copy strong {
     text-transform: uppercase;
   }
+
   .copy ul {
     list-style-type: disc;
     margin: 0 0 30px 20px;
@@ -437,6 +470,62 @@ button[type="submit"] {
   overflow: hidden;
 }
 
+.video-play-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 112px;
+  width: 72px;
+  border-color: transparent transparent transparent #94D2BD  !important;
+  border-width: 56px 0px 56px 72px !important;
+  opacity: 1;
+  display: block;
+  z-index: 5;
+}
+
+.video-play-btn::after {
+  content: '';
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  background-image: url(../assets/images/helmet-orange.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  display: block;
+  z-index: 4;
+  opacity: 1;
+}
+
+.video-play-btn .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #070707;
+  z-index: 4;
+}
+
+.training-video .react-player__progress {
+  display: none !important;
+}
+
+/* Hide the download button */
+.training-video .react-player__download {
+  display: none !important;
+}
+
 .react-player__play-icon {
   border-color: transparent transparent transparent #94D2BD  !important;
   border-width: 26px 0px 26px 42px !important;
@@ -474,6 +563,14 @@ button[type="submit"] {
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+
+/* Utils */
+.rel-x-center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 

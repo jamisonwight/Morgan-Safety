@@ -9,31 +9,37 @@ export default async (req, res) => {
             const jwt = response.data.jwt
             const user = response.data.user
             const id = response.data.user.id
+            const paidUser = response.data.user.paidUser
+
+            const userData = {
+                ...user, 
+                firstName: user.First_Name,
+                lastName: user.Last_Name,
+                phoneNumber: user.Phone_Number,
+                address: user.Address,
+                city: user.City,
+                state: user.State,
+                zipcode: user.Zipcode,
+                
+            }
+
+            // Set the cookie and then redirect
+            const cookieOptions = {
+                httpOnly: true,
+                secure: process.env.NODE_ENV !== 'development',
+                maxAge: 60 * 60 * 24 * 7, // 1 week
+                sameSite: 'strict',
+                path: '/',
+            }
 
             res.setHeader('Set-Cookie', [
-                cookie.serialize('token', jwt, {
-                    httpOnly: true,
-                    secure: process.env.NODE_ENV !== 'development',
-                    maxAge: 60 * 60 * 24 * 7, // 1 week
-                    sameSite: 'strict',
-                    path: '/',
-                }),
-                cookie.serialize('userid', id, {
-                    httpOnly: true,
-                    secure: process.env.NODE_ENV !== 'development',
-                    maxAge: 60 * 60 * 24 * 7, // 1 week
-                    sameSite: 'strict',
-                    path: '/',
-                }),
-                cookie.serialize('user', JSON.stringify(user), { // Add this line
-                    httpOnly: false, // Adjust as per your requirement
-                    secure: process.env.NODE_ENV !== 'development',
-                    maxAge: 60 * 60 * 24 * 7, // 1 week
-                    sameSite: 'strict',
-                    path: '/',
-                }),
+                cookie.serialize('token', jwt, cookieOptions),
+                cookie.serialize('userid', id, cookieOptions),
+                cookie.serialize('user', JSON.stringify(userData), cookieOptions),
+                cookie.serialize('paidUser', paidUser, cookieOptions),
             ])
-            .json({ message: user })
+
+            return res.status(200).json({ message: userData })
         })
         .catch((error) => {
             if (!error.response.data.error.message) {

@@ -1,6 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
 import getConfig from "next/config";
 import { NextSeo } from 'next-seo'
 import Modules from '../components/modules'

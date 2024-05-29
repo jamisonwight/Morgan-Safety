@@ -5,38 +5,69 @@ import { loadStripe } from "@stripe/stripe-js"
 import { useInitialRender } from "../../hooks/useInitialRender"
 import CheckoutForm from "../../components/checkoutForm"
 import { UserContext } from '../../context/user'
+import MessageCallout from '../../components/messageCallout'
+import { message } from '../../utils/message'
 
 const stripePromise = loadStripe("pk_test_51NVzLYISmtDOo3NfinGKJFa40kaVu7rqstmMnV2h4rjbarHEQlogiHIShSGW7206a5lghJJXsHUPz0RB09ud0rPO006qJqTXlH")
 
 export default function Checkout() {
 
     const initialRender = useInitialRender()
-    const { user, checkLogin, setIntentPurchase, intentPurchase } = useContext(UserContext)
-    const router = useRouter()
+    const { 
+            user,
+            paidUser, 
+            checkTrainingRegister, 
+            setIntentPurchase, 
+            intentPurchase 
+    } = useContext(UserContext)
+    
+    const router= useRouter()
 
     const styles = {
-        main: `w-full h-full relative left-[50%] translate-x-[-50%] flex justify-center py-[100px] max-w-[1440px] bg-black ` +
-            `-lg:px-[60px] -lg:pt-[80px]`,
-        content_container: `w-full max-w-[650px] overflow-y-scroll scrollbar-hide -lg:pt-[40px]`,
-        title: {
-            main: `heading-4 text-orange normal-case text-center -sm:text-[25px]`,
-            heading: ``,
-        },
+        main: `w-full h-full min-h-[calc(100vh_-_270px)]`,
+        content_container: `w-full h-full`
     }
 
     useEffect(() => {
-        // User is set to be interested in training payment
-        // This helps with redirects if user tries to checkout without being signed in
         setIntentPurchase(true)
-    }, [])
+
+        if (user.confirmed) {
+            checkTrainingRegister()
+        }
+    }, [router, user])
+
+    if (!initialRender) return null
+
+    let content = null
+
+    if (user.confirmed && !paidUser) {
+        content = (
+            <Elements stripe={stripePromise}>
+                <CheckoutForm />
+            </Elements>
+        )
+    } else if (paidUser) {
+        content = null
+    } else {
+        content = (
+            <MessageCallout 
+                pathName="/user/login"
+                message={message.checkout.accessDeniedUser}
+                btnText="Sign In" 
+            />
+        );
+    }
 
     return (
         <div className={`checkout ${styles.main}`}>
             <div className={`content-container ${styles.content_container}`}>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm />
-                </Elements>
+                {content}
             </div>
         </div>
     )
 }
+
+
+
+
+

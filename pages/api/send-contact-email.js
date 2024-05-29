@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { sendText } from 'textbelt'
+import { SMSApi, SMSMessage } from 'clicksend'
 import 'dotenv/config'
 
 export default async (req, res) => {
@@ -41,24 +41,6 @@ export default async (req, res) => {
     };
 
     await transporter.sendMail(message);
-
-    const messageSMS = `
-      <b>MSS New Contact</b> 
-    
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phoneNumber}
-      Form Type: ${formType}
-
-      Message: ${message}
-    `
-
-    // Send SMS Message to Admin numbers
-    sendText('4174029696', messageSMS, undefined, function(err) {
-      if (err) {
-        console.log(err);
-      }
-    });
 
     res.status(200).json({ success: true });
   } catch (error) {

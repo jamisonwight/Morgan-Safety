@@ -2,8 +2,9 @@ import '@/styles/globals.css'
 import Layout from '../components/layout'
 import { useState } from 'react'
 import { DefaultSeo } from 'next-seo'
+import { AnimatePresence } from 'framer-motion'
 
-export default function App({ Component, pageProps, bios }) {
+export default function App({ Component, pageProps, router, bios }) {
   const [showForm, setShowForm] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -48,6 +49,7 @@ export default function App({ Component, pageProps, bios }) {
       />
 
       <Component 
+        key={router.pathname}
         showForm={showForm} 
         setShowForm={handleShowForm}
         showMobileMenu={showMobileMenu} 
@@ -55,6 +57,7 @@ export default function App({ Component, pageProps, bios }) {
         bios={bios} 
         {...pageProps} 
       />
+
     </Layout>
   )
 }

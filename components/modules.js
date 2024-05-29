@@ -13,27 +13,31 @@ export default function Modules({ data, bios, showForm, setShowForm }) {
         switch(module.__component) {
             case ('modules.hero'):
                 return <Hero 
+                    key={index}
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm} 
                     index={index} />
 
             case ('modules.timeline-image-and-content'):
-                return <TimelineImageContent 
+                return <TimelineImageContent
+                    key={index} 
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm}
                     index={index} />
                 
             case ('modules.about-details'):
-                return <AboutSection 
+                return <AboutSection
+                    key={index} 
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm}
                     index={index} />
 
             case ('modules.team'):
-                return <Team 
+                return <Team
+                    key={index} 
                     data={module} 
                     bios={bios} 
                     showForm={showForm} 
@@ -41,21 +45,24 @@ export default function Modules({ data, bios, showForm, setShowForm }) {
                     index={index} />
 
             case ('modules.sponsors'):
-                return <Sponsors 
+                return <Sponsors
+                    key={index} 
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm}
                     index={index} />
             
             case ('modules.feature-content'):
-                return <FeatureContent 
+                return <FeatureContent
+                    key={index} 
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm}
                     index={index} />
 
             case ('modules.copy'):
-                return <Copy 
+                return <Copy
+                    key={index} 
                     data={module} 
                     showForm={showForm} 
                     setShowForm={setShowForm}

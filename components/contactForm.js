@@ -83,7 +83,7 @@ export default function ContactForm({ data, showForm, setShowForm }) {
     }
 
     const sendSMS = async () => {
-        // Contact email to Admin
+        // Contact SMS to Admin Phones
         try {
             await axios.post('/api/send-contact-sms', {
                 name: `${First_Name} ${Last_Name}`,

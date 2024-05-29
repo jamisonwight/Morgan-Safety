@@ -5,7 +5,7 @@ import Logout from '../partials/logout'
 
 export default function AccountHeader() {
 
-    const { user, setUser, checkLogin } = useContext(UserContext)
+    const { user, checkLogin, paidUser, checkPaidUser } = useContext(UserContext)
 
     const styles = {
         main: `account-header-container w-full sticky top-[0] z-20`,
@@ -15,12 +15,14 @@ export default function AccountHeader() {
             ul: `flex flex-row justify-center items-center h-full`,
         },
         username: `flex`,
-        link: `text-orange font-din text-h7 tracking-h7 uppercase block`,
-        span: `text-cyan font-din font-bold text-h7 tracking-h7 uppercase block px-[5px]`,
+        link: `text-cyan font-din text-h7 tracking-h2 uppercase block`,
+        link_alt: `text-cyan heading-4 text-[18px] tracking-h3 block`,
+        span: `text-orange font-din font-bold text-h7 tracking-h7 uppercase block px-[5px]`,
     }
 
     useEffect(() => {
         checkLogin()
+        checkPaidUser(user)
     }, [])
 
     return (
@@ -34,7 +36,16 @@ export default function AccountHeader() {
 
                     <div className={`menu ${styles.menu.main}`}>
                         <ul className={styles.menu.ul}>
-                            <li><Logout className={styles.link} /></li>
+                            {!user.trainingComplete &&
+                                <li><Link href="/training" className={styles.link_alt}>Training Courses &#10132;</Link></li>
+                            }
+
+                            {/* Need to add a state for training started but not complete */}
+
+                            {/* Need to add a state for training complete */}
+                            {/* {user.paidUser || paidUser && 
+                                <li><Link href="/training" className={styles.link_alt}>Continue Training &#10132;</Link></li>
+                            } */}
                         </ul>
                     </div>
                 </div>

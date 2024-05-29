@@ -60,7 +60,7 @@ export default function footer({ data, showForm, setShowForm }) {
             <div className={`links ${styles.legal.links}`}>
             {data.Menu &&
               data.Menu.map((link) => (
-                <ul>
+                <ul key={link.id}>
                   <li>
                     <a 
                       href={link.URL}
