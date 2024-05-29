@@ -54,7 +54,7 @@ export default function Header({
 
     return (
         <div className={`header-container ${styles.main}`}>
-            <AccountHeader />
+            {/* <AccountHeader /> */}
 
             <div className={`wrapper ${styles.wrapper}`}>
                 <div className={`logo ${styles.logo.main}`}>
