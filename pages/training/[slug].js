@@ -4,7 +4,6 @@ import { useInitialRender } from "../../hooks/useInitialRender"
 import getConfig from "next/config";
 import Link from 'next/link'
 
-import Button from '../components/partials/button'
 
 function ThankYou() {
     const styles = {
@@ -18,16 +17,8 @@ function ThankYou() {
     return (
         <div className={`thank-you ${styles.main}`}>
             <div className={`container ${styles.container}`}>
-                <h1 className={styles.heading}>Thank you for your submission</h1>
-                <p className={styles.paragraph}>Someone will be in contact with you shortly!</p>
-                <Button
-                    key={1} 
-                    type={`fill-orange`}
-                    text={`Back To Home`}
-                    url={'/'}
-                    isTrainingTrigger={false}
-                    classes={styles.btn}
-                />
+                <h1 className={styles.heading}>pp</h1>
+                
             </div>
         </div>
     );
