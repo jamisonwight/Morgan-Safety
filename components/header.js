@@ -87,7 +87,7 @@ export default function Header({
                 </div>
 
                 <div className={`btn-container ${styles.btn_container.main}`}>
-                    <UserAuthMenu />
+                    {/* <UserAuthMenu /> */}
                     
                     <Button
                         type='fill-black'
